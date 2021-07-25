@@ -8,7 +8,7 @@ Welcome to Fast Floward! We are excited to have you here. This repository is whe
 
 # 📚 Where to Find Content
 
-* **Content will be shared every day at 7am Pacific Time.** All content will be shared in this repository. We will send a message in the #fast-floward Discord channel every day at 7am Pacific Time once content is posted.
+* **Content will be shared every day at 7am Pacific Time.** All content will be shared in this repository. We will send a message in the #⏩-fast-floward Discord channel every day at 7am Pacific Time once content is posted.
 
 * **Content will be paired with Quests to help you put your knowledge to the test.** You can think of these like homework — but way more fun and a lot more creative.
 
