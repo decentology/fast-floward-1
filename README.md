@@ -30,6 +30,8 @@ We will be hosting Office Hours to help you work through the Quests. This is a t
 **🗓When:** Please see [this calendar](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for Office Hours times.
 
 # ⚡️ Submit Quests
-Once you have completed a Quest, please use the #submit-quest Discord channel to submit the Github repository link.
+Once you have completed a Quest, please [submit your Github repository link by filling out this form](https://ak8olq4gvwr.typeform.com/to/cplbGT78). 
+
+Once you have submitted a Quest, you should see your submission in the #✨-quest-submissions channel in Discord. Feel free to look at other participants' Quest submissions – sharing submissions allows everyone in the Fast Floward program to learn from one another!
 
 If you make an effort to complete all Quests, you will recieve a special surprise at the end of the bootcamp.
