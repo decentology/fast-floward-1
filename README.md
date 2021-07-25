@@ -19,7 +19,7 @@ Welcome to Fast Floward! We are excited to have you here. This repository is whe
 * **We highly encourage you to complete all quests.** If you do, we have a special surprise for you at the end of the bootcamp! :wink:
 
 # 👋 Fast Floward Community
-By participating in Fast Floward, you are becoming part of this community! We have a team of people who are here for YOU and want to help you in every way we can.
+By participating in Fast Floward, you are becoming part of this community! We have a community of people who are here for YOU and want to help you in every way we can.
 
 In order to do that, you need to know who we are (and where to find us on Discord)!
 
