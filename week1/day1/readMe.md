@@ -255,8 +255,6 @@ capitals.containsKey("USA") // false
 capitals.remove(key: "France") // "London"
 ```
 
-# Reference:
-
 [1]: https://docs.onflow.org/
 [2]: https://docs.onflow.org/flow-cli/install/
 [3]: https://docs.onflow.org/vscode-extension/
