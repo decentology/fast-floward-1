@@ -449,7 +449,7 @@ pub fun main() {
 }
 ```
 
-By now, you should start getting ideas for all the ways you could improve on this and add more functionality. Take some time to explore the following quests to see if you find a solution.
+By now, you should start getting ideas for all the ways you could improve on this and add more functionality. Take some time to explore the following quests to see if you can find a solution.
 
 # Quests
 
