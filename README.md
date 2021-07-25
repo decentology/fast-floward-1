@@ -24,6 +24,9 @@ We will be hosting Office Hours to help you work through the Quests. This is a t
 
 **📍Where:** Office Hours will be held in the #office-hours voice channel in Discord (see image below).
 
+<img src="https://uploads-ssl.webflow.com/5dea4f8b31edea3328b9a0f6/60fda995e941fc666d92761c_Screen%20Shot%202021-07-25%20at%202.11.42%20PM.png"
+     alt="Voice channel in Discord">
+
 **🗓When:** Please see [this calendar](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for Office Hours times.
 
 # ⚡️ Submit Quests
