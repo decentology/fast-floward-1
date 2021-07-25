@@ -18,6 +18,17 @@ Welcome to Fast Floward! We are excited to have you here. This repository is whe
 
 * **We highly encourage you to complete all quests.** If you do, we have a special surprise for you at the end of the bootcamp! :wink:
 
+# 👋 Fast Floward Community
+By participating in Fast Floward, you are becoming part of this community! We have a team of people who are here for YOU and want to help you in every way we can.
+
+In order to do that, you need to know who we are (and where to find us on Discord)!
+
+* Instructor ‒ Nik Kalyani (@Nik Kalyani | Decentology)
+* Instructor ‒ Morgan Wilde (@MorganW)
+* Instructor ‒ Jacob Tucker (@Jacob Tucker | Decentology)
+* Community Organizer ‒ Chase Chapman (@Chase Chapman)
+
+Please do not hesitate to reach out to any of us with questions or if you want to chat and learn more about how you can get involved with Decentology and Flow, we are all here to support you.
 
 # ☕️ Office Hours
 We will be hosting Office Hours to help you work through the Quests. This is a time to ask questions and get past anything that is blocking you from completing a Quest.
