@@ -110,7 +110,7 @@ test1234 // cool
 (-_-) // not cool
 ```
 
-Samicolons are optional, except for when you put two or more declarations on the same line.
+Semicolons `;` are optional, except for when you put two or more declarations on the same line.
 
 You declare variables with `var` and constants with `let`. When declaring a variable you have to initialize it.
 
@@ -151,7 +151,7 @@ tiny = tiny + 1
 tiny = tiny + 1
 ```
 
-Cadence will not allow your integers to be assigned values outside of their range. This protects us as developers from a costly overflow mistakes.
+Cadence will not allow your integers to be assigned values outside of their range. This protects us as developers from costly overflow mistakes.
 
 Integers have a couple of methods.
 
@@ -163,7 +163,7 @@ million.toBigEndianBytes() // [15, 66, 64]
 
 ### Fixed-Point Numbers
 
-Cadence has `Fix64` and `UFix64` to represent fractional values, which are essentially integers with a scaling factor, in this case it's `8`.
+Cadence has `Fix64` and `UFix64` to represent fractional values, which are essentially integers with a scaling factor, in this case with the scaling factor of `8`.
 
 ```cadence
 let fractional: Fix64 = 10.5
@@ -171,7 +171,7 @@ let fractional: Fix64 = 10.5
 
 ### Addresses
 
-With Cadence, you'll constantly be interacting with accounts and you can reference them using the `Address` type.
+With Cadence, you'll constantly be interacting with accounts, and you can reference them using the `Address` type.
 
 ```cadence
 let myAddress: Address = 0x96462d76b0a776b1
@@ -185,7 +185,7 @@ Immutable collections of Unicode characters.
 let name = "Morgan"
 ```
 
-Some useful methods and fields.
+String methods and fields.
 
 ```cadence
 name.length // 6
@@ -236,7 +236,7 @@ days.removeLast() // "Friday"
 
 ### Dictionaries
 
-Dictionaries are mutable, unordered collections of key-value pairs. Keys must be hashable and equatable, most of the build-in types conform to these requirements.
+Dictionaries are mutable, unordered collections of key-value pairs. Keys must be hashable and equatable, most of the built-in types conform to these requirements.
 
 ```cadence
 {} // empty dictionary
