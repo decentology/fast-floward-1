@@ -486,6 +486,13 @@ pub resource Printer {
 }
 ```
 
+# Videos
+
+- [Introduction and Flow Programming Environment](https://www.youtube.com/watch?v=3vBKQRi_jf4)
+- [Cadence Syntax and Basic Types](https://www.youtube.com/watch?v=rnZPe076cIU)
+- [Cadence Functions and Composite Types](https://www.youtube.com/watch?v=rTXRKObHrk4)
+- [Playing around with Cadence + Day 1 Quests](https://www.youtube.com/watch?v=gaK4RvtWYKk)
+
 [1]: https://docs.onflow.org/
 [2]: https://docs.onflow.org/flow-cli/install/
 [3]: https://docs.onflow.org/vscode-extension/
