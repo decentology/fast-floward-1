@@ -455,7 +455,12 @@ By now, you should start getting ideas for all the ways you could improve on thi
 
 # Quests
 
-1. Write a function that displays a canvas in a frame.
+For day one, we have two quests: `W1Q1` and `W1Q2`. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel.
+
+- `W1Q1` – Frame it!
+
+
+Write a function that displays a canvas in a frame.
 
 ```cadence
 pub fun display(canvas: Canvas)
@@ -471,7 +476,9 @@ pub fun display(canvas: Canvas)
 "+-----+"
 ```
 
-2. Create a resource that prints `Picture`s but only once for each unique 5x5 `Canvas`.
+- `W1Q2` – Uniques
+
+Create a resource that prints `Picture`'s but only once for each unique 5x5 `Canvas`.
 
 ```cadence
 pub resource Printer {
