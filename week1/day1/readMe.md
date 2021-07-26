@@ -281,7 +281,7 @@ For example.
 
 ```cadence
 pub fun sayHi(to name: String) {
-  log("Hi, ".concat(to))
+  log("Hi, ".concat(name))
 }
 pub fun main() {
   sayHi(to: "FastFloward")
