@@ -83,7 +83,7 @@ I'm going to be using **VS Code** as my code editor, the team at Flow have creat
 flow cadence install-vscode-extension
 ```
 
-Now that we're all set up, we can dig deeper into **Cadence**, the **Flow** smart contract programming language. Going forward, I'll be working in a Linux environment, but everything should work the same in both macOS and Windows.
+Now that we're all set up, we can dig deeper into **Cadence**, the **Flow** smart contract programming language. Going forward, I'll be working in a Linux environment, but everything should  work the same in both macOS and Windows.
 
 # Cadence
 
@@ -280,7 +280,7 @@ The keyword `pub` that preceeds `fun` is an access modifier and it defines *publ
 For example.
 
 ```cadence
-pub fun sayHi(to: String) {
+pub fun sayHi(to name: String) {
   log("Hi, ".concat(to))
 }
 pub fun main() {
