@@ -1,8 +1,10 @@
 # FastFloward | Week 1 | Day 1
 
+Hello there! My name is Morgan and together with the team at Decentology we'll guide you towards becoming a decentralized application developer during the 3 weeks of FastFloward.
+
 When exploring something new, it’s important to limit oneself in terms of scope. There’s only so much time and an infinite amount of material, so we’ll focus on things that lead towards shipping decentralized applications or DApps the fastest.
 
-When you set out to build any App, one of the first decisions is to pick a platform you'll build on. Same with DApps. We've made this decision for you, our platform of choice is Flow and Cadence. I'll explain why we think this is a good decision to get started.
+To build any App, one of the first decisions is to choose a platform you'll build on. Same with DApps. We've made this decision for you, and our platform of choice is Flow and Cadence. I'll explain why we think this is a good decision to get started.
 
 # Flow
 
