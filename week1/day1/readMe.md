@@ -1,4 +1,8 @@
-# FastFloward | Week 1 | Day 1
+# Welcome to Fast Floward
+
+We cannot wait for you to join this community of builders. Before we kick things off, please watch our [Welcome Video](https://youtu.be/5xqf8ugzsrc), which will give you an overview of what to expect in the Fast Floward bootcamp and two pieces of advice to help guide you through the next three weeks.
+
+# Fast Floward | Week 1 | Day 1
 
 Hello there! My name is Morgan and together with the team at Decentology we'll guide you towards becoming a decentralized application developer during the 3 weeks of FastFloward.
 
