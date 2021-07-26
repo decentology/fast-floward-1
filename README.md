@@ -19,7 +19,7 @@ Welcome to Fast Floward! We are excited to have you here. This repository is whe
 * **We highly encourage you to complete all quests.** If you do, we have a special surprise for you at the end of the bootcamp! :wink:
 
 # 👋 Fast Floward Community
-By participating in Fast Floward, you are becoming part of this community! We have a team of people who are here for YOU and want to help you in every way we can.
+By participating in Fast Floward, you are becoming part of this community! We have a community of people who are here for YOU and want to help you in every way we can.
 
 In order to do that, you need to know who we are (and where to find us on Discord)!
 
@@ -33,7 +33,7 @@ Please do not hesitate to reach out to any of us with questions or if you want t
 # ☕️ Office Hours
 We will be hosting Office Hours to help you work through the Quests. This is a time to ask questions and get past anything that is blocking you from completing a Quest.
 
-**🗓When:** Please see [this calendar](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for Office Hours times.
+**🗓When:** Please see [this calendar](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for Office Hours times. That this calendar will be updated weekly.
 
 **📍Where:** Office Hours will be held in the #office-hours voice channel in Discord (see image below).
 
