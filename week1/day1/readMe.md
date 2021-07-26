@@ -10,6 +10,13 @@ When exploring something new, it’s important to limit oneself in terms of scop
 
 To build any App, one of the first decisions is to choose a platform you'll build on. Same with DApps. We've made this decision for you, and our platform of choice is Flow and Cadence. I'll explain why we think this is a good decision to get started.
 
+# Videos
+
+- [Introduction and Flow Programming Environment](https://www.youtube.com/watch?v=3vBKQRi_jf4)
+- [Cadence Syntax and Basic Types](https://www.youtube.com/watch?v=rnZPe076cIU)
+- [Cadence Functions and Composite Types](https://www.youtube.com/watch?v=rTXRKObHrk4)
+- [Playing around with Cadence + Day 1 Quests](https://www.youtube.com/watch?v=gaK4RvtWYKk)
+
 # Flow
 
 Flow is a blockchain that's efficient, fast, reliable, and it supports smart contracts. It is designed by developers for developers with tons of tools and resources made available. You can go from zero to executing your first contract in a few minutes, without having to spend loads of time correctly setting up your environment.
@@ -489,13 +496,6 @@ pub resource Printer {
   pub fun print(canvas: Canvas): @Picture?
 }
 ```
-
-# Videos
-
-- [Introduction and Flow Programming Environment](https://www.youtube.com/watch?v=3vBKQRi_jf4)
-- [Cadence Syntax and Basic Types](https://www.youtube.com/watch?v=rnZPe076cIU)
-- [Cadence Functions and Composite Types](https://www.youtube.com/watch?v=rTXRKObHrk4)
-- [Playing around with Cadence + Day 1 Quests](https://www.youtube.com/watch?v=gaK4RvtWYKk)
 
 [1]: https://docs.onflow.org/
 [2]: https://docs.onflow.org/flow-cli/install/
