@@ -1,4 +1,4 @@
-# Welcome to Fast Floward
+# A Note Before You Start
 
 We cannot wait for you to join this community of builders. Before we kick things off, please watch our [Welcome Video](https://youtu.be/5xqf8ugzsrc), which will give you an overview of what to expect in the Fast Floward bootcamp and two pieces of advice to help guide you through the next three weeks.
 
