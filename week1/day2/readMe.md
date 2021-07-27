@@ -445,11 +445,18 @@ pub resource Collection {
 pub fun createCollection(): Collection
 ```
 
-Test your `Collection
+Test your `Collection`
 
 - `W1Q4` – Connoisseur
 
 Write a script that prints the contents of collections for all five Playground accounts (`0x01`, `0x02`, etc.). Please use your framed canvas printer function to log each `Picture`'s canvas in a legible way. Provide a log for accounts that don't yet have a `Collection`.
+
+Please submit your solutions to these quests using the `.cdc` stubs provided in this folder.
+
+```
+- artist.contract.cdc
+- getCollections.script.cdc
+```
 
 Good luck on your quests!
 
