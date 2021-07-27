@@ -21,6 +21,10 @@ Welcome back! I hope day 1 was fun and interesting. Today we'll get to learn abo
   - `resource`: linear type (moved, can only exist once).
 - Cadence `resource`'s use `<-` notation for movement, special keywords `create` and `destroy`, and `@` to denote resource type, for example `let canvas: @Canvas`.
 
+# Videos
+
+- [Day 2 – Review, Flow Playground, Smart Contracts, Transactions, Scripts + Quests](https://youtu.be/4wpoqDKzw8Y)
+
 # Playground
 
 We executed our first lines of Cadence code using `flow cadence`. It's a great way to get started, when all we need is a programming language interpreter. However, decentralized applications are more than just interpreted code, they also interact with a global state which is the blockchain.
