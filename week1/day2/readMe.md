@@ -82,4 +82,129 @@ In the bottom pane you'll also find account storage information, once you start 
 
 ![Log and storage](images/logAndStorage.jpg)
 
+# Contract #1
+
+Let's create our first Cadence smart contract!
+
+1. Select `0x01` from the **Accounts** pane.
+2. Type out the following code
+
+```cadence
+pub contract Hello {
+  pub fun sayHi(to name: String) {
+    log("Hi, ".concat(name))
+  }
+}
+```
+
+3. Hit **Deploy**
+4. Get confirmation from the logs.
+
+```
+11:11:11 Deployment > [1] > Deployed Contract To: 0x01
+```
+
+At this point you'll see the name of the contract you deployed displayed under the `0x01` account in the Accounts pane. The name in this case is taken directly from the source code, but outside of Playground you deploy contracts with a `name: String` and the contract source code. So each account can have multiple instances of the same contract under different names. As mentioned previously, Playground accounts only support one contract each.
+
+OK, now that we have a blockchain program deployed, let's interact with it! Flow provides two distinct ways to do this.
+
+- Scripts: anonymous and read-only.
+- Transactions: authenticated, can mutate blockchain state, and are cryptographically signed.
+
+We'll do one of each to see them in practice. Click on **Script** and let's write some code.
+
+# Script #1
+
+This should look familiar to you. We used the same entry point `main()` to run our Cadence code in day 1, but now we have access to smart contracts!
+
+We begin by `import`ing contracts we want to interact with from account addresses that are hosting them. You can think of this pattern much like when you import a class from a library in a package manager. Given how on Flow, everything is stored with accounts, naturally they store all the existing contracts.
+
+```cadence
+import Hello from 0x01
+
+pub fun main() {
+  let name = "FastFloward"
+  Hello.sayHi(to: name)
+}
+```
+
+Click on **Execute** and you'll see two lines in the **Log** pane.
+
+```
+11:11:11 Script > [1] > "Hi, FastFloward"
+11:11:11 Script > [2] Result > {"type":"Void"}
+```
+
+You normally fetch information about public state using scripts, so it's expected that they `return` some kind of value. In our case we're not explicitly returning anything, but similar to JavaScript when functions `return undefined`, in Cadence functions without explicit `return` statements return the `Void` type.
+
+Now, moving on to transactions...
+
+# Transaction #1
+
+For reference, please use the [documentation][2]. Our script was able to interact with a public function of the `Hello` contract, with transactions we can add authorized accounts into the mix. Let's write our first transaction.
+
+```cadence
+import Hello from 0x01
+
+transaction {
+
+  let name: String
+
+  prepare(account: AuthAccount) {
+    self.name = account.address.toString()
+  }
+
+  execute {
+    log(Hello.sayHi(to: self.name))
+  }
+}
+```
+
+Same as with **Scripts**, we begin by importing all the contracts we'll be interacting with.
+
+Then we declare the `transaction` body and its contents. Each transaction has 4 phases that are sequential, however they're all optional.
+
+```cadence
+transaction(randomParameter: String) {
+  let localVariable: Int
+  prepare(signer: AuthAccount) {}
+  pre {}
+  execute {}
+  post {}
+}
+```
+
+If we want to share data between the 4 phases, we can declare local variables inside the `transaction` body, no access modifiers needed.
+
+## Prepare phase
+
+The only phase where you have direct access to account storage and other private functionality provided by an instance of `AuthAccount`. For now, we're just doing to use the `address` field, but you can learn more in the [docs][3].
+
+## Execute phase
+
+In this phase, you should store the main logic for your transaction. You **may not** access private `AuthAccount` objects here.
+
+For now, we'll only need the `prepare` and `execute` phases.
+
+In our `prepare` phase, we grab the `account.address` and store for later access in the `execute` phase.
+
+In the `execute` phase, we call the `sayHi` function of the `Hello` contract, using the signing account address for the `name` argument.
+
+## Executing a Transaction
+
+Let's go a head and execute this transaction! In the **Transaction Signers** pane, pick one account, any account, and click **Send**.
+
+![Transaction signers](images/transaction.signers.jpg)
+
+You should see the **Log** pane updating with the different account addresses.
+
+```
+11:11:11 Transaction > [1] > "Hi, 0x1"
+11:11:11 Transaction > [2] > ()
+11:11:12 Transaction > [3] > "Hi, 0x2"
+11:11:12 Transaction > [4] > ()
+```
+
 [1]: https://play.onflow.org/
+[2]: https://docs.onflow.org/cadence/language/transactions/
+[3]: https://docs.onflow.org/cadence/language/accounts/
