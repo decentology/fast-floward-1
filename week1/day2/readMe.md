@@ -35,7 +35,7 @@ Today, we're going to use **Playground**, but we'll tackle the other two later t
 
 ## Environment
 
-Fire up your browseer and open up [play.onflow.org][1] to launch Playground.
+Fire up your browser and open up [play.onflow.org][1] to launch Playground.
 
 ![Playground screenshot](images/playground.jpg)
 
