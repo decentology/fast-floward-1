@@ -205,6 +205,253 @@ You should see the **Log** pane updating with the different account addresses.
 11:11:12 Transaction > [4] > ()
 ```
 
+# Contract #2
+
+Now that we're familiar with **Flow Playground**, we can start transitioning our pixel art logic into a smart contract.
+
+```cadence
+pub contract Artist {
+
+  pub struct Canvas {
+
+    pub let width: UInt8
+    pub let height: UInt8
+    pub let pixels: String
+
+    init(width: UInt8, height: UInt8, pixels: String) {
+      self.width = width
+      self.height = height
+      // The following pixels
+      // 123
+      // 456
+      // 789
+      // should be serialized as
+      // 123456789
+      self.pixels = pixels
+    }
+  }
+
+  pub resource Picture {
+
+    pub let canvas: Canvas
+    
+    init(canvas: Canvas) {
+      self.canvas = canvas
+    }
+  }
+
+  pub resource Printer {
+
+    pub let width: UInt8
+    pub let height: UInt8
+    pub let prints: {String: Canvas}
+
+    init(width: UInt8, height: UInt8) {
+      self.width = width;
+      self.height = height;
+      self.prints = {}
+    }
+
+    pub fun print(canvas: Canvas): @Picture? {
+      // Canvas needs to fit Printer's dimensions.
+      if canvas.pixels.length != Int(self.width * self.height) {
+        return nil
+      }
+
+      // Canvas can only use visible ASCII characters.
+      for symbol in canvas.pixels.utf8 {
+        if symbol < 32 || symbol > 126 {
+          return nil
+        }
+      }
+
+      // Printer is only allowed to print unique canvases.
+      if self.prints.containsKey(canvas.pixels) == false {
+        let picture <- create Picture(canvas: canvas)
+        self.prints[canvas.pixels] = canvas
+
+        return <- picture
+      } else {
+        return nil
+      }
+    }
+  }
+
+  init() {
+    self.account.save(
+      <- create Printer(width: 5, height: 5),
+      to: /storage/ArtistPicturePrinter
+    )
+    self.account.link<&Printer>(
+      /public/ArtistPicturePrinter,
+      target: /storage/ArtistPicturePrinter
+    )
+  }
+}
+```
+
+Most of this code should be familiar, with a couple of new additions.
+
+Starting with everything being wrapped in a `contract`, you can't declare anything outside of a `contract` when it comes to Flow.
+
+Then you can see my implementation of the `Printer` resource, which is going to print unique `Canvas` structures. I used a dictionary to enforce this, but you can also use an array.
+
+Finally, there's the `init()` initializer. This is where we set things up for the contract host account. In the initializer we have access to `self.account` which is of the familiar `AuthAccount` type and provides us with full private access to the account.
+
+## Storage
+
+Here you can see two of the **Account Storage API** methods being used: `save` and `link`. With them, we're able to persist an instance of `Printer` and provide others access to it.
+
+```cadence
+init() {
+  self.account.save(
+    <- create Printer(width: 5, height: 5),
+    to: /storage/ArtistPicturePrinter
+  )
+  self.account.link<&Printer>(
+    /public/ArtistPicturePrinter,
+    target: /storage/ArtistPicturePrinter
+  )
+}
+```
+
+Let's explore each one and how to use them.
+
+### `save`
+
+Everything that we want to persist on the Flow blockchain, we have to store with an account. The `save` function does exactly that, we give a value and a unique location where to store it.
+
+```cadence
+fun save<T>(_ value: T, to: StoragePath)
+```
+
+You define path where to store values in two parts: `/domain/uniqueIdentifier`. There are three possible domains.
+
+1. `storage`: the actual location of the value, only use `storage` with `save()`.
+2. `public`: can be accessed without authorization through `PublicAccount`.
+3. `private`: must be accessed with authorization through `AuthAccount`.
+
+For reference, please use the [docs][5].
+
+### `link`
+
+If we simply stored an instance of `Printer` with the contract account, everyone that wanted to print a `Canvas` as a `Picture` would require authorization, a signature, from the contract account. That's cumbersome and we want to allow everyone to print `Picture`'s freely.
+
+Cadence employs **Capability-based Access Control** to allow smart contracts to expose parts of their storage to other accounts.
+
+By calling `link` we create a `Capability`.
+
+```cadence
+fun link<T: &Any>(_ newCapabilityPath: CapabilityPath, target: Path): Capability<T>?
+```
+
+You must be asking yourself – what is the purpose of `&`?
+
+### References
+
+We can create references to both resources and structures. They give us access to fields and functions of the object we're referencing. You can create references.
+
+```cadence
+let name = "Morgan"
+let nameRef: &String = &name as &String
+```
+
+Or you can borrow them from capabilities.
+
+```cadence
+let printerRef = getAccount(0x01)
+  .getCapability<&Artist.Printer>(/public/ArtistPicturePrinter)
+  .borrow()
+  ?? panic("Couldn't borrow reference to Printer")
+
+// Now printerRef has access to every field and function of the underlying Printer resource.
+printerRef.print(...)
+```
+
+For reference 🙂, please use the [docs][6].
+
+# Transaction #2
+
+Alrighty! We have ourselves a new smart contract, let's test it out.
+
+```cadence
+import Artist from 0x02
+
+transaction() {
+  
+  let pixels: String
+  let picture: @Artist.Picture?
+
+  prepare(account: AuthAccount) {
+    let printerRef = getAccount(0x02)
+      .getCapability<&Artist.Printer>(/public/ArtistPicturePrinter)
+      .borrow()
+      ?? panic("Couldn't borrow printer reference.")
+    
+    // Replace with your own drawings.
+    self.pixels = "*   * * *   *   * * *   *"
+    let canvas = Artist.Canvas(
+      width: printerRef.width,
+      height: printerRef.height,
+      pixels: self.pixels
+    )
+    
+    self.picture <- printerRef.print(canvas: canvas)
+  }
+
+  execute {
+    if (self.picture == nil) {
+      log("Picture with ".concat(self.pixels).concat(" already exists!"))
+    } else {
+      log("Picture printed!")
+    }
+
+    destroy self.picture
+  }
+}
+```
+
+This transaction is designed to print unique pictures and destroy them afterwards. The ultimate expression of art! By the way, the `getAccount` function fetches an instance of `PublicAccount` using an account address.
+
+If we run this transaction twice, we should get the following logs.
+
+```
+11:11:11 New Transaction > [1] > "Picture printed!"
+11:11:12 New Transaction > [2] > "Picture with *   * * *   *   * * *   * already exists!"
+```
+
+Lastly, we can also see changes in the **Storage** pane of the account that's hosting our `Artist` contract.
+
+![Storage pane](images/storage.jpg)
+
+# Quests
+
+It's day two and amazingly we're already able to write smart contracts and execute transactions on the simulated Flow blockchain.
+
+Let's dig deeper and see if we can accomplish the following quests!
+
+- `W1Q3` – My precious!
+
+Create a `Collection` resource for our `Artist` contract that will allow accounts to store their `Picture` resources once they're printed. Take note, you can only create resources within a contract.
+
+```cadence
+pub resource Collection {
+  pub fun deposit(picture: @Picture)
+}
+pub fun createCollection(): Collection
+```
+
+Test your `Collection
+
+- `W1Q4` – Connoisseur
+
+Write a script that prints the contents of collections for all five Playground accounts (`0x01`, `0x02`, etc.). Please use your framed canvas printer function to log each `Picture`'s canvas in a legible way. Provide a log for accounts that don't yet have a `Collection`.
+
+Good luck on your quests!
+
 [1]: https://play.onflow.org/
 [2]: https://docs.onflow.org/cadence/language/transactions/
 [3]: https://docs.onflow.org/cadence/language/accounts/
+[4]: https://docs.onflow.org/cadence/language/accounts/#account-storage
+[5]: https://docs.onflow.org/cadence/language/capability-based-access-control/
+[6]: https://docs.onflow.org/cadence/language/references/
