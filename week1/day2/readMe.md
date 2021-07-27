@@ -1,6 +1,6 @@
 # Fast Floward | Week 1 | Day 2
 
-Welcome back! I hope day 1 was fun and interesting. Today we'll get to learn about another Flow developer tool – **Playground**. Also, we'll write our first *smart contract* and get to send interact with it using *transactions* and *scripts*. Should be exciting! But first, let's review what we learned during day 1.
+Welcome back! I hope day 1 was fun and interesting. Today we'll get to learn about another Flow developer tool – **Playground**. Also, we'll write our first *smart contract* and get to interact with it using *transactions* and *scripts*. Should be exciting! But first, let's review what we learned during day 1.
 
 # Day 1 Review
 
