@@ -255,7 +255,7 @@ Please refer to the [docs][3] for more details.
 
 Congrats! We now have our first real smart contract deployed with an account. Let's waste no time, and go play with it. The easiest way to do this will be to execute a script.
 
-Same as with our updated `Hello` contract, we'll modify the script from day 2 to return a string, instead of logging it. Also, we'll provide a `name: String` as an argument instead of hard-coding it. It's more fun that way!
+Same as with our updated `Hello` contract, we'll modify the script from day 2 to return a string, instead of logging it. Also, we'll provide a `name: String` as an argument instead of hard-coding it. It's more fun that way! One caveat before we proceed, we have to comment out the `emit event` from our `sayHi` function because scripts don't support events.
 
 ```cadence
 import Hello from "./contract.cdc"
