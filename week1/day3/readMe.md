@@ -27,7 +27,8 @@ For a complete Cadence language reference, please visit [docs.onflow.org][1].
 
 # Videos
 
-- [Placeholder]()
+- [Day 2 Review, Flow Emulator, and flow.json](https://www.youtube.com/watch?v=Ntna1mPvMjY)
+- [Deploying contracts, sending transactions, and executing scripts](https://youtu.be/aDAsv2O0IT4)
 
 # Flow Emulator
 
