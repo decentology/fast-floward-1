@@ -100,7 +100,7 @@ We combine all of the above sections to create a mapping for contract deployment
 
 ## How to Lauch
 
-You can start without providing any configuration. If you get a system dialog asking for network permissions, please allow it.
+If you get a system dialog asking for network permissions, please allow it.
 
 ```sh
 flow emulator start
