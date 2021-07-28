@@ -1,6 +1,6 @@
 # Fast Floward | Week 1 | Day 3
 
-Welcom to Day 3 of Fast Floward! Today we go back to using the always useful `flow-cli` to host the entire Flow environment locally. We'll get to create accounts, sign transactions, and deploy contracts. All of that with the help of the **Flow Emulator**, which is a tiny version of the full Flow blockchain on your computer. Now that's awesome!
+Welcome to Day 3 of Fast Floward! Today we go back to the always useful `flow-cli` to host the entire Flow environment locally. We'll get to create accounts, sign transactions, and deploy contracts. All of that with the help of the **Flow Emulator**, which is a tiny version of the full Flow blockchain on your computer. Now that's awesome!
 
 Before we get to that, let's review day 2.
 
