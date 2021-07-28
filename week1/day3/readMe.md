@@ -74,7 +74,7 @@ Here you will assign aliases to the accounts you're using in the development pro
 
 ### `contracts`
 
-While using Flow Playground we got to interact with smart contracts by `import`'ing them from account using an account's address. However, if you hard-code an account address in your Cadence code, you will only be able to deploy that contract in the environment that has that account. This is because account addresses are not shared between the emulator and the testnet, or mainnet.
+While using Flow Playground we got to interact with smart contracts by `import`'ing them from accounts using the account address. However, if you hard-code an account address in your Cadence code, you will only be able to deploy that contract in the environment that has that account. This is because account addresses are not shared between the emulator and the testnet, or mainnet.
 
 To solve for this, simply use `import Contract from "path/to/contract.cdc"` in your *.cdc* files, and the `flow-cli` will take care of replacing that with the appropriate account address, if one is defined in your `flow.json`.
 
