@@ -354,7 +354,7 @@ pub event PicturePrintSuccess(pixels: String)
 pub event PicturePrintFailure(pixels: String)
 ```
 
-- `W1Q5` – Printer goes brrrrr
+- `W1Q6` – Printer goes brrrrr
 
 Implement the following transactions.
 
@@ -363,7 +363,7 @@ createCollection.transactions.cdc
 print.transaction.cdc
 ```
 
-- `W1Q6` – What you got?
+- `W1Q7` – What you got?
 
 Implement the `displayCollection.script.cdc` as per the specification in the file.
 
