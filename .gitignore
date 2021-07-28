@@ -108,3 +108,4 @@ dist
 # Flow
 flow.json
 flowdb
+*.rlp
