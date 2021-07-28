@@ -138,7 +138,7 @@ Public Key 	 c69560acb6ff5b4db1870ec47c6f2474f862b34bb69b3508557e5733406da63cb52
 
 ## Accounts
 
-With our keys in hand, we can create our account. Please note that we must identify the signature algorithm if it's not the default `ECDSA_P256`. Also, since create an account is just a regular transaction under the hood, an account must sign it. Thankfully, the emulator comes prepopulated with `emulator-account`.
+With our keys in hand, we can create our account. Please note that we must identify the signature algorithm if it's not the default `ECDSA_P256`. Also, since creating an account is just a regular transaction under the hood, an account must sign it. Thankfully, the emulator comes prepopulated with `emulator-account`.
 
 ```sh
 flow accounts create \
