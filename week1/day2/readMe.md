@@ -27,7 +27,7 @@ Welcome back! I hope day 1 was fun and interesting. Today we'll get to learn abo
 
 # Office Hours
 
-- [Quest implementation and general Q&A](https://www.youtube.com/watch?v=pkbPl7MfBHs)
+- [Quest implementation and general Q&A](https://www.youtube.com/watch?v=DwLdLnx8jKE)
 
 # Playground
 
