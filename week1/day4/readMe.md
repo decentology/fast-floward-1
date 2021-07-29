@@ -121,7 +121,7 @@ Hopefully, we now have a basic understanding of the project structure as far as 
 
 # Flow Testnet
 
-Day 3 was all about the emulator and interacting with a local instance of the Flow network. Today we want to go public! We'll do that by deploying our `LocalArtist` contract to the Flow testnet. The process is exactly the same as the process to deploy emulator contracts. The only difference – we don't have direct access to the testnet service account, and we can't create an account without already having an account. But Flow have got a covered.
+Day 3 was all about the emulator and interacting with a local instance of the Flow network. Today we want to go public! We'll do that by deploying our `LocalArtist` contract to the Flow testnet. The process is exactly the same as the process to deploy emulator contracts. The only difference – we don't have direct access to the testnet service account, and we can't create an account without already having an account. But Flow have got us covered.
 
 ## Flow Faucet
 
