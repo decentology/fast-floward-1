@@ -58,7 +58,7 @@ fcl.send([
 ])
 ```
 
-This is just to give you a glimpse at FCL, we'll explore it further using our real-world DApp examples. To learn more about FCL from the horse's mouth, have a look at [Inside Flow: The Power of Simplicity with FCL][1], it's a recent blog post from a Flow team, where they build a strong case for FCL.
+This is just to give you a glimpse of FCL, we'll explore it further, using our real-world DApp examples. To learn more about FCL, right from the horse's mouth, have a look at [Inside Flow: The Power of Simplicity with FCL][1], it's a recent blog post from the Flow team, where they build a strong case for FCL.
 
 # Artist
 
