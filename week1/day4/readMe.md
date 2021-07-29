@@ -162,7 +162,7 @@ Then update it with all the relevant information we just got.
   },
   "deployments": {
     "testnet": {
-      "testnet-artist": [
+      "testnet-local-artist": [
         "LocalArtist"
       ]
     }
