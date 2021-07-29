@@ -21,7 +21,7 @@ A quick review of Day 3 before we get going.
 
 # Videos
 
-- [Placeholder]()
+- [Flow Client Library (FCL), Flow Testnet](https://youtu.be/5XWWWbOd78k)
 
 # Office Hours
 
