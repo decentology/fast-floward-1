@@ -1,0 +1,20 @@
+.frameGrid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.frameCell {
+  position: relative;
+  display: block;
+  margin: 0 16px 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 4px solid transparent;
+}
+.frameCell.isInteractive {
+  cursor: pointer;
+}
+.frameCell.isInteractive:hover:not(.isFocused) {
+  border-color: hsl(171, 100%, 41%);
+}
+.frameCell.isFocused svg rect.isOn {
+  fill: hsl(171, 100%, 41%);
+}

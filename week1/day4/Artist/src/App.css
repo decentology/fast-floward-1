@@ -1,0 +1,17 @@
+#App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Color variables */
+  --material-grey-100: #F5F5F5;
+  --material-grey-200: #EEEEEE;
+  --material-grey-400: #BDBDBD;
+  --material-grey-800: #424242;
+  --material-grey-900: #212121;
+  --material-green-400: #66BB6A;
+  --material-red-400: #EF5350;
+}
+#Navigation {
+  padding: 0 32px 0 32px;
+  background-color: var(--material-grey-100);
+}
