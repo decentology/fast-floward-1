@@ -128,9 +128,11 @@ This is it – once you're done with this final quest, you're officially a decen
 Modify `/src/context/Flow.jsx` by implementing these methods.
 
 ```
-withdrawListing // call LocalMarketArtist.withdraw()
-buy // call LocalMarketArtist.buy()
+withdrawListing // call LocalArtistMarket.withdraw()
+buy // call LocalArtistMarket.buy()
 ```
+
+Also, take a look at `/src/pages/Trade/Trade.jsx` to see if you need to uncomment anything...
 
 And with that, you've got yourself an online NFT marketplace!
 
