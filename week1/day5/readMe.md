@@ -64,6 +64,45 @@ account.link<&{LocalArtist.PictureReceiver}>(
 
 Now, whenever anyone interacts with the resource at `/public/LocalArtistPictureReceiver`, it will only provide access to `deposit()` and `getCanvases()`. And this way, we can stay secure in knowing that only the owner of this account has the ability to withdraw Pictures from their collection.
 
+Here's the full `Greeting` contract from the video.
+
+```cadence
+pub contract Hello {
+  pub resource interface GreetingLimited {
+    pub fun getGreeting(): String
+  }
+  pub resource Greeting: GreetingLimited {
+    pub var greeting: String
+    pub init(greeting: String) {
+      self.greeting = greeting
+    }
+    pub fun getGreeting(): String {
+      return self.greeting
+    }
+    pub fun setGreeting(_ greeting: String) {
+      self.greeting = greeting
+    }
+  }
+
+  init() {
+    self.account.save<@Greeting>(
+      <- create Greeting(greeting: "Hi, FastFloward!"),
+      to: /storage/Greeting
+    )
+    self.account.link<&{GreetingLimited}>(
+      /public/Greeting,
+      target: /storage/Greeting
+    )
+
+    let greeting = self.account
+      .getCapability(/public/Greeting)
+      .borrow<&Greeting>()!
+
+    greeting.setGreeting("Bye!")
+  }
+}
+```
+
 To learn more about [capability based access control][3] and [interfaces][4], please visit the official docs.
 
 # Trading Pictures
