@@ -15,3 +15,7 @@
   padding: 0 32px 0 32px;
   background-color: var(--material-grey-100);
 }
+
+.table td, .table th {
+  vertical-align: middle;
+}
