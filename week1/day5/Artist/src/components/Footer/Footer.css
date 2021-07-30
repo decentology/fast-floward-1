@@ -1,0 +1,14 @@
+#Footer {
+  padding: 16px 32px 32px 32px;
+  background-color: var(--material-grey-100);
+}
+#Footer #Hero {
+  flex: 1;
+}
+#Footer #User {
+  display: flex;
+  align-items: center;
+}
+#User .profile {
+  margin: 0 0 0 16px;
+}
