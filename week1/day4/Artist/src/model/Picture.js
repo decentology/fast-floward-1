@@ -1,6 +1,10 @@
+import Grid from './Grid.js';
+
 class Picture {
-  constructor(pixels) {
+  constructor(pixels, width = null, height = null) {
     this.pixels = pixels;
+    this.width = width || Grid.columns;
+    this.height = height || Grid.rows;
   }
   pixelAt(index) {
     return this.pixels.charAt(index);

@@ -24,7 +24,7 @@ function reducer(state, action) {
       if (action.payload) {
         return {
           ...state,
-          collection: action.payload.map((serialized) => new Picture(serialized.pixels))
+          collection: action.payload
         };
       } else {
         return {
@@ -133,11 +133,12 @@ function Provider(props) {
           // Use the "fetchBalance" as an example.
 
           const collection = [];
+          const mappedCollection = collection.map((serialized) => new Picture(serialized.pixels, serialized.width, serialized.height))
 
           if (address) {
-            return collection.map((serialized) => new Picture(serialized.pixels));
+            return mappedCollection;
           } else {
-            dispatch({type: 'setCollection', payload: collection});
+            dispatch({type: 'setCollection', payload: mappedCollection});
           }
         } catch (error) {
           if (address) {

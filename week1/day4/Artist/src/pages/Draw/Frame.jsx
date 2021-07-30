@@ -53,15 +53,12 @@ function Frame(props) {
     setActivePixel(null);
   };
 
-  for (let row = 0; row < props.grid.rows; row += 1) {
-    for (let column = 0; column < props.grid.columns; column += 1) {
+  for (let row = 0; row < props.picture.height; row += 1) {
+    for (let column = 0; column < props.picture.width; column += 1) {
       const index = row * props.grid.columns + column;
       const x = column * (props.pixel.width + props.pixel.spacing);
       const y = row * (props.pixel.height + props.pixel.spacing);
-      let fill = constants.pixel.offFill;
-      if (props.picture) {
-        fill = constants.pixel.fill[props.picture.pixelAt(index)];
-      }
+      let fill = constants.pixel.fill[props.picture.pixelAt(index)];
 
       const isOn = props.picture.pixelAt(index) === Picture.onPixel;
 

@@ -42,10 +42,6 @@ function Collection(props) {
             >
               <Frame
                 pixel={Pixel.thumbnail}
-                grid={{
-                  rows: 5,
-                  columns: 5
-                }}
                 picture={picture}
               />
             </div>

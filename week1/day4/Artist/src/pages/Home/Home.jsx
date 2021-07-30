@@ -71,10 +71,6 @@ function Home(props) {
           <div className="block">
             <Frame
               pixel={Pixel.full}
-              grid={{
-                rows: 5,
-                columns: 5
-              }}
               picture={focusedPicture}
             />
           </div>

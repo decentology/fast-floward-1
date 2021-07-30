@@ -178,10 +178,6 @@ function Draw(props) {
         <div className="block">
           <Frame
             pixel={Pixel.full}
-            grid={{
-              rows: 5,
-              columns: 5
-            }}
             picture={state.picture}
             onTogglePixel={onTogglePixel}
           />
