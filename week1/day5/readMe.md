@@ -17,7 +17,7 @@ A quick review of Day 4 before we get going.
 
 # Videos
 
-- [Placeholder]()
+- [Cadence Interfaces, NFT Trading](https://youtu.be/ogAls3Wbs9o)
 
 # Office Hours
 
