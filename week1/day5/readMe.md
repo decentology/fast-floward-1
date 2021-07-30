@@ -1,6 +1,6 @@
 # Fast Floward | Week 1 | Day 5
 
-Welcome to Day 5, the last day of Fast Floward Week 1! What an incredible spurt we've made over this past week. Starting with simple, interpreted Cadence statements, all the way up to a client implementation of the Artist app that prints actual Non-Fungible Tokens for users. But this is just the start of your journey! Today, we'll add a new feature to the Artist app – trading. In the process, we'll learn about how to combine functionality of two smart contracts, and a new Cadence concept called `interface`. Let's make Day 5 the best yet!
+Welcome to Day 5, the last day of Fast Floward Week 1! What an incredible spurt we've made over this past week. Starting with simple, interpreted Cadence statements, all the way up to a client implementation of the Artist app that prints actual Non-Fungible Tokens for users. But this is just the start of your journey! Today, we'll add a new feature to the Artist app – trading. In the process, we'll learn how to combine functionality from multiple smart contracts, and a new Cadence concept called `interface`. Let's make Day 5 the best yet!
 
 A quick review of Day 4 before we get going.
 
