@@ -152,12 +152,12 @@ Then update it with all the relevant information we just got.
     "testnet-local-artist": {
       "address": "0x01",
       "key": {
-				"type": "hex",
-				"index": 0,
-				"signatureAlgorithm": "ECDSA_secp256k1",
-				"hashAlgorithm": "SHA3_256",
-				"privateKey": "abc"
-			}
+        "type": "hex",
+        "index": 0,
+        "signatureAlgorithm": "ECDSA_secp256k1",
+        "hashAlgorithm": "SHA3_256",
+        "privateKey": "abc"
+      }
     }
   },
   "deployments": {
@@ -249,6 +249,7 @@ async function sendTransaction() {
     .send([
       fcl.transaction`
         // Your Cadence code...
+        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST_ACCOUNT}
       `,
       fcl.args([
         fcl.arg("Hello, FastFloward!", FlowTypes.String)
@@ -277,6 +278,7 @@ async function sendTransaction() {
     .send([
       fcl.script`
         // Your Cadence code...
+        import LocalArtist from ${process.env.REACT_APP_ARTIST_CONTRACT_HOST_ACCOUNT}
       `,
       fcl.args([
         fcl.arg("Hello, FastFloward!", FlowTypes.String)
