@@ -23,12 +23,12 @@ function Frame(props) {
   const isInteractive = props.onTogglePixel;
   
   const width = (
-    props.grid.columns
+    props.picture.width
     * (props.pixel.width + props.pixel.spacing)
     - props.pixel.spacing
   );
   const height = (
-    props.grid.rows
+    props.picture.height
     * (props.pixel.height + props.pixel.spacing)
     - props.pixel.spacing
   );
@@ -55,7 +55,7 @@ function Frame(props) {
 
   for (let row = 0; row < props.picture.height; row += 1) {
     for (let column = 0; column < props.picture.width; column += 1) {
-      const index = row * props.grid.columns + column;
+      const index = row * props.picture.width + column;
       const x = column * (props.pixel.width + props.pixel.spacing);
       const y = row * (props.pixel.height + props.pixel.spacing);
       let fill = constants.pixel.fill[props.picture.pixelAt(index)];
