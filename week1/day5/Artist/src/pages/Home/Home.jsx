@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import classNames from 'classnames';
 import {Link, useHistory} from 'react-router-dom';
 
 import Pixel from '../../model/Pixel.js';
@@ -12,6 +13,7 @@ import './Home.css';
 
 function Home(props) {
   const [focusedPicture, setFocusedPicture] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const flow = useContext(FlowContext);
   const history = useHistory();
 
@@ -22,8 +24,35 @@ function Home(props) {
       setFocusedPicture(picture);
     }
   };
-  const onSell = () => {
-    history.push('/trade');
+  const onSell = async () => {
+    setIsLoading(true);
+
+    const rawPrice = window.prompt("How much FLOW would you like to sell for?");
+    const price = Number.parseFloat(rawPrice);
+    
+    if (price > 0) {
+      try {
+        const transactionResult = await flow.postListing(
+          focusedPicture,
+          price
+        );
+        await flow.fetchCollection();
+
+        setIsLoading(false);
+
+        if (transactionResult.events.find((event) => event.type.endsWith('ItemPosted'))) {
+          console.log(transactionResult);
+          history.push('/trade');
+        } else {
+          console.log('Something went wrong putting this Picture up for sale.');
+        }
+      } catch (error) {
+        console.log('There was an error putting this Picture up for sale.');
+        console.log(error);
+      }
+    } else {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -84,7 +113,10 @@ function Home(props) {
             <div className="field is-grouped block">
               <div className="control">
                 <button
-                  className="button is-primary"
+                  className={classNames({
+                    'button is-primary': true,
+                    'is-loading': isLoading
+                  })}
                   onClick={onSell}
                 >
                   Sell
