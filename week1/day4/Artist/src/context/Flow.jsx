@@ -133,7 +133,13 @@ function Provider(props) {
           // Use the "fetchBalance" as an example.
 
           const collection = [];
-          const mappedCollection = collection.map((serialized) => new Picture(serialized.pixels, serialized.width, serialized.height))
+          const mappedCollection = collection.map(
+            (serialized) => new Picture(
+              serialized.pixels,
+              serialized.width,
+              serialized.height
+            )
+          );
 
           if (address) {
             return mappedCollection;
