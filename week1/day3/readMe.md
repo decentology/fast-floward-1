@@ -30,6 +30,10 @@ For a complete Cadence language reference, please visit [docs.onflow.org][1].
 - [Day 2 Review, Flow Emulator, and flow.json](https://www.youtube.com/watch?v=Ntna1mPvMjY)
 - [Deploying contracts, sending transactions, and executing scripts](https://youtu.be/aDAsv2O0IT4)
 
+# Office Hours
+
+- [Quest implementation and general Q&A](https://www.youtube.com/watch?v=Cb8Fuic6Y9o)
+
 # Flow Emulator
 
 We saw how the Flow blockchain works in practice on day 2. With Flow Playground we were able to deploy smart contracts, run scripts, and execute transactions. It's awesome that you can do all that in your browser!
