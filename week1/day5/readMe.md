@@ -94,9 +94,17 @@ pub contract Hello {
       target: /storage/Greeting
     )
 
+    // This fails.
     let greeting = self.account
       .getCapability(/public/Greeting)
-      .borrow<&Greeting>()!
+      .borrow<&Greeting>()
+      ?? panic("I can't!")
+
+    // This works.
+    let greetingGood = self.account
+      .getCapability(/public/Greeting)
+      .borrow<&{GreetingLimited}>()
+      ?? panic("I really should...")
 
     greeting.setGreeting("Bye!")
   }
