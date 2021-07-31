@@ -55,7 +55,7 @@ function Trade(props) {
       .then((listings) => dispatch({type: 'setListings', payload: listings}));
   }, [flow]);
 
-  const onBuy = (listingIndex) => {
+  const onBuy = async (listingIndex) => {
     console.log(listingIndex);
     dispatch({type: 'startProcessing', payload: listingIndex});
     // TODO: Once your buy() method is implemented in Flow.jsx, uncomment this line.
@@ -66,7 +66,7 @@ function Trade(props) {
     dispatch({type: 'setListings', payload: listings});
     dispatch({type: 'stopProcessing'});
   };
-  const onWithdraw = (listingIndex) => {
+  const onWithdraw = async (listingIndex) => {
     console.log(listingIndex);
     dispatch({type: 'startProcessing', payload: listingIndex});
     // TODO: Once your withdrawListing() method is implemented in Flow.jsx, uncomment this line.
