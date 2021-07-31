@@ -88,7 +88,7 @@ pub contract LocalArtistMarket {
         sellerCollection.deposit(picture: <- picture)
       }
     }
-    pub fun buy(listing listingIndex: Int, with tokenVault: @FlowToken.Vault, buyer: Address) {
+    pub fun buy(listing listingIndex: Int, with tokenVault: @FungibleToken.Vault, buyer: Address) {
       pre {
         self.listings[listingIndex] != nil
         : "Listing no longer exists."
@@ -99,13 +99,13 @@ pub contract LocalArtistMarket {
       let listing = self.listings.remove(at: listingIndex)
 
       let sellerVault = getAccount(listing.seller)
-        .getCapability(/public/MainReceiver)
+        .getCapability(/public/flowTokenReceiver)
         .borrow<&FlowToken.Vault{FungibleToken.Receiver}>()
         ?? panic("Couldn't borrow seller vault.")
 
       let buyerCollection = getAccount(buyer)
         .getCapability(/public/LocalArtistPictureReceiver)
-        .borrow<&LocalArtist.Collection{LocalArtist.PictureReceiver}>()
+        .borrow<&{LocalArtist.PictureReceiver}>()
         ?? panic("Couldn't borrow buyer Picture Collection.")
 
       emit ItemSold(seller: listing.seller, pixels: listing.canvas.pixels, buyer: buyer)
