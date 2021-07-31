@@ -82,7 +82,7 @@ pub contract LocalArtistMarket {
 
         let sellerCollection = getAccount(seller)
           .getCapability(/public/LocalArtistPictureReceiver)
-          .borrow<&LocalArtist.Collection{LocalArtist.PictureReceiver}>()
+          .borrow<&{LocalArtist.PictureReceiver}>()
           ?? panic("Couldn't borrow seller Picture Collection.")
         
         sellerCollection.deposit(picture: <- picture)
