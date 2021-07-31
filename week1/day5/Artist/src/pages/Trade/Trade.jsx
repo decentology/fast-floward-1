@@ -1,5 +1,8 @@
 import {useContext, useReducer, useEffect} from 'react';
 
+import {Link} from 'react-router-dom';
+import classNames from 'classnames';
+
 import Pixel from '../../model/Pixel.js';
 import Picture from '../../model/Picture.js';
 
