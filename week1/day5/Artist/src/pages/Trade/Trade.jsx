@@ -62,6 +62,7 @@ function Trade(props) {
     // await flow.buy(listingIndex);
     await flow.fetchCollection()
     const listings = await flow.fetchListings();
+    await flow.fetchBalance();
     dispatch({type: 'setListings', payload: listings});
     dispatch({type: 'stopProcessing'});
   };
@@ -70,7 +71,8 @@ function Trade(props) {
     dispatch({type: 'startProcessing', payload: listingIndex});
     // TODO: Once your withdrawListing() method is implemented in Flow.jsx, uncomment this line.
     // await flow.withdrawListing(listingIndex);
-    await flow.fetchCollection()
+    await flow.fetchCollection();
+    await flow.fetchBalance();
     const listings = await flow.fetchListings();
     dispatch({type: 'setListings', payload: listings});
     dispatch({type: 'stopProcessing'});
