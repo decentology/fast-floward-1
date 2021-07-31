@@ -40,7 +40,7 @@ pub contract LocalArtistMarket {
     pub fun getListings(): [Listing]
     pub fun sell(picture: @LocalArtist.Picture, seller: Address, price: UFix64)
     pub fun withdraw(listingIndex: Int, to seller: Address) 
-    pub fun buy(listing listingIndex: Int, with tokenVault: @FlowToken.Vault, buyer: Address)
+    pub fun buy(listing listingIndex: Int, with tokenVault: @FungibleToken.Vault, buyer: Address)
   }
 
   pub resource Market: MarketInterface {
