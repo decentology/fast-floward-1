@@ -1,48 +1,50 @@
 <img src="https://uploads-ssl.webflow.com/5dea4f8b31edea3328b9a0f6/60fd99793bc7964cbd310943_Fast-Floward-Banner.png"
      alt="Hackathon Banner">
-# ⏩ Fast Floward
-Welcome to Fast Floward! We are excited to have you here. This repository is where you will find all content, resources, and links for the Fast Floward bootcamp.
+# ⏩ 极速Flow学习之旅(Fast Floward)
+欢迎来到极速Flow学习之旅(Fast Floward)！我们很高兴在这里与您相遇。您可以在这个代码库中找到 Fast Floward 训练营的所有内容、资源和链接。
+* **在您开始学习之前, 请先确认您已经加入了[Decentology Discord频道](http://discord.gg/Decentology)**. 有关Fast Floward 的所有事情都将在这个discord 频道发生。如果您正在参加该训练营，您应该在 Discord 中被分配了“Fast Floward”角色。这将使您的名字变成亮绿色。如果您尚未被分配此角色，请联系 DM Chase Chapman#8019。
 
+# 📚 在哪里可以找到学习内容
 
-* **Before you do anything, please make sure you are in the [Decentology Discord](http://discord.gg/Decentology)**. This is where all things Fast Floward will be happening. If you are participating in the bootcamp, you should have been assigned the "Fast Floward" role within Discord. This will make your name bright green. If you have not been assigned this role, please DM Chase Chapman#8019.
+* **学习内容将在太平洋时间的每天早上7点发布出来。** 所有内容都将在此代码库中共享。一旦内容发布，我们将在太平洋时间每天早上 7 点在 #⏩-fast-floward Discord 频道中发送一条消息。
 
-# 📚 Where to Find Content
+* **任务将与内容配对出现，以帮助测试您对知识掌握的程度。** 您可以将这些视为家庭作业 - 但更有趣，也更有创意。
 
-* **Content will be shared every day at 7am Pacific Time.** All content will be shared in this repository. We will send a message in the #⏩-fast-floward Discord channel every day at 7am Pacific Time once content is posted.
-
-* **Content will be paired with Quests to help you put your knowledge to the test.** You can think of these like homework — but way more fun and a lot more creative.
-
-* **We will hold Office Hours** several times throughout the week to help you work through the quests.
+* **我们将在一周内举行多次答疑**，以帮助您完成学习任务。
 
 * **You can expect about 1.5 to 2 hours worth of videos each week** (note that Week 1 will likely be a bit more) and about 2 to 2.5 hours to spend on the quests throughout the week (this is a minimum, but since they are creative in nature, you can certainly spend more time if you’d like).
+* **您每周大概需要观看 1.5 到 2 小时的教学视频**（请注意，第 1 周可能会多一点），同时，每个星期花在作业任务上的时间大约为 2 到 2.5 小时（这是最低的时间要求，但由于它们本质上非常具有创造性，因此如果您愿意，您可以花更多时间来完成作业）。
 
 * **We highly encourage you to complete all quests.** If you do, we have a special surprise for you at the end of the bootcamp! :wink:
+* **我们强烈鼓励您完成所有的作业。** 如果您完成了，我们会在训练营结束时为您准备一个特别的惊喜！ ：眨眼：
 
-# 👋 Fast Floward Community
-By participating in Fast Floward, you are becoming part of this community! We have a community of people who are here for YOU and want to help you in every way we can.
+# 👋 极速Flow学习之旅(Fast Floward)社区
+通过参与 Fast Floward，您将成为这个社区的一员！我们有一群人在这里为您服务，并希望尽我们所能帮助您。
 
-In order to do that, you need to know who we are (and where to find us on Discord)!
+为了做到这一点，您需要知道我们是谁（以及在 Discord 上如何找到我们）！
 
-* Instructor ‒ Nik Kalyani (@Nik Kalyani | Decentology)
-* Instructor ‒ Morgan Wilde (@MorganW)
-* Instructor ‒ Jacob Tucker (@Jacob Tucker | Decentology)
-* Community Organizer ‒ Chase Chapman (@Chase Chapman)
+* 讲师 ‒ Nik Kalyani (@Nik Kalyani | Decentology)
+* 讲师 ‒ Morgan Wilde (@MorganW)
+* 讲师 ‒ Jacob Tucker (@Jacob Tucker | Decentology)
+* 社区组织者 ‒ Chase Chapman (@Chase Chapman)
 
-Please do not hesitate to reach out to any of us with questions or if you want to chat and learn more about how you can get involved with Decentology and Flow, we are all here to support you.
+如果您有任何问题，请随时与我们联系，或者如果您想聊天并了解有关如何参与 Decentology 和 Flow 的更多信息，我们随时在这里为您提供帮助。
 
-# ☕️ Office Hours
-We will be hosting Office Hours to help you work through the Quests. This is a time to ask questions and get past anything that is blocking you from completing a Quest.
 
-**🗓When:** Please see [this calendar](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for Office Hours times. That this calendar will be updated weekly.
 
-**📍Where:** Office Hours will be held in the #office-hours voice channel in Discord (see image below).
+# ☕️ 答疑时间
+我们将安排答疑时间来帮助您完成作业任务。在答疑时间里，您可以对阻碍您完成作业任务的任何疑问，提出问题并寻求帮助。
 
+**🗓时间:** 请查看 [这个答疑时间的日历](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) . 该日历将每周更新。
+
+**📍地点:** 答疑时间将在 Discord 的#office-hours 语音频道中举行（见下图）。
 <img src="https://uploads-ssl.webflow.com/5dea4f8b31edea3328b9a0f6/60fda995e941fc666d92761c_Screen%20Shot%202021-07-25%20at%202.11.42%20PM.png"
      alt="Voice channel in Discord">
 
-# ⚡️ Submit Quests
-Once you have completed a Quest, please [submit your Github repository link by filling out this form](https://ak8olq4gvwr.typeform.com/to/cplbGT78). 
+# ⚡️ 提交作业
 
-Once you have submitted a Quest, you should see your submission in the #✨-quest-submissions channel in Discord. Feel free to look at other participants' Quest submissions – sharing submissions allows everyone in the Fast Floward program to learn from one another!
+完成作业任务后，请[通过填写此表单提交您的 Github 代码库链接](https://ak8olq4gvwr.typeform.com/to/cplbGT78)。
 
-If you make an effort to complete all Quests, you will recieve a special surprise at the end of the bootcamp.
+提交作业任务后，您应该会在 Discord 的 #✨-quest-submissions 频道中看到您的提交。您可以查看其他参与者提交的作业 - 共享提交的作业可以让 Fast Floward 计划中的每个人有机会能相互学习！
+
+如果您努力完成了所有的作业任务，您将在本训练营结束时收到特别的惊喜。
