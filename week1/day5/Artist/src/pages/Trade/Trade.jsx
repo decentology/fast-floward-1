@@ -61,7 +61,7 @@ function Trade(props) {
   };
   const onWithdraw = (listingIndex) => {
     console.log(listingIndex);
-    // flow.withdraw(listingIndex);
+    // flow.withdrawListing(listingIndex);
   };
 
   return (
