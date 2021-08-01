@@ -21,7 +21,7 @@ A quick review of Day 4 before we get going.
 
 # Office Hours
 
-- [Placeholder]()
+- [Office Hours #5](https://www.youtube.com/watch?v=Bnaq37xiTmE)
 
 # Cadence Interfaces
 
