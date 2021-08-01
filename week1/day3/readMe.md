@@ -277,6 +277,8 @@ flow scripts execute hello/sayHi.script.cdc \
   --arg String:"FastFloward"
 ```
 
+Warning! If you're using Windows PowerShell or any other non-unix like terminal, please only use `--arg` to set your arguments. `--args-json` doesn't work on Windows.
+
 We can also use **JSON** to encode our arguments. Remember, the top-level has to be an array `[]`, like in this example.
 
 ```sh
