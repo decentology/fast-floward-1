@@ -4,15 +4,15 @@ Helloooo! Jacob here. You will be stuck with me for the remaining parts of the b
 
 This week, we will wrap up our introduction to the Cadence programming language and begin to explore DappStarter, a platform created by the team at Decentology that allows developers like you to get a full-stack dApp running quickly.
 
-You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control & Contract Interfaces. The second video will give you an introduction to DappStarter.
+You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control & Contract Interfaces. The second will go over contract interfaces and pre/post-conditions. The third video will give you an introduction to DappStarter.
 
 # Videos
 
 - [Access Control in Cadence]()
-- [Contract Interfaces]()
+- [Contract Interfaces & Post/Pre-Conditions]()
 - [DappStarter Setup]()
 
-# Wrapping up Cadence
+# Wrapping up Cadence Concepts
 
 Last week, you went over a ton of Cadence concepts and basic syntax thanks to Morgan. This week we're going to wrap it up, first by covering Access Control and then by going over Contract Interfaces.
 
@@ -155,9 +155,106 @@ Read Scope - Current & Inner
 
 ## Contract Interfaces
 
+I know, I know. More Cadence. Ugh. We're almost done... just kidding! We will be stuck with Cadence for 2 more weeks, so we might as well keep going. :)
+
+Contract interfaces are very similar to what we learned last week with resources. They are a little different, though, and it will appear in some examples this week, so let's go over it quickly (don't worry, it's not that bad).
+
+Let's define a sample contract interface:
+```cadence
+pub contract interface TestContractInterface {
+  pub let x: Int
+
+  pub fun readX(): Int {
+    post {
+      result == self.x:
+        "The result is not equal to x. That's a problem."
+    }
+  }
+
+  pub resource interface INFT{
+    pub let y: Int
+  }
+
+  pub resource NFT: INFT {
+    pub let y: Int
+  }
+}
+```
+
+There's multiple things going on here. First, we've defined a constant named `x`, a function named `readX`, a resoure interface named `INFT`, and a resource named `NFT` that implements the `INFT` resource interface. But what is this doing? What's the point here?
+
+Well, we can use this contract interface to require other contracts to implement its fields, functions, variables, and constants. Let's use our example from above:
+
+```cadence
+import TestContractInterface from './TestContractInterface'
+pub contract TestContract: TestContractInterface {
+  pub let x: Int
+
+  pub fun readX(): Int {
+    return self.x
+  }
+
+  pub resource NFT: TestContractInterface.INFT {
+    pub let y: Int
+
+    init() {
+      self.y = 1
+    }
+  }
+
+  init() {
+    self.x = 0
+  }
+}
+```
+
+As you can see, we had to define an `x` constant, a `readX` function that returns `x`, and a resource named `NFT` that implements `TestContractInterface.INFT` and has field named `y`. Note that `NFT` MUST be named "NFT" or we will receive an error. Similarly, we cannot define our own `INFT` resource interface in `TestContract`. We MUST have `NFT` implement `TestContractInterface.INFT` because that is how `TestContractInterface` is written.
+
+### A Side Note on Pre-Conditions & Post-Conditions
+
+In the example above, you can see we used a `post-condition`. These are most often used in contract interfaces, but you will see them in normal contracts as well. They are both used as an extra security layer and as a means of expressing intent; it makes sure contract functions behave accordingly.
+
+Let's look at the above example:
+```cadence
+pub contract interface TestContractInterface {
+  pub let x: Int
+
+  pub fun readX(): Int {
+    post {
+      result == self.x:
+        "The result is not equal to x. That's a problem."
+    }
+  }
+
+  {...}
+}
+```
+
+The post condition here is being used to make sure that whoever implements `TestContractInterface` MUST have a function named readX that returns `self.x`. Not any other value.
+
+Similarly, `pre-conditions` are used to check conditions are met before a function even excecutes, saving a bunch of time and adding security checks:
+```cadence
+pub contract interface TestContract {
+
+  {...}
+
+  pub fun deposit(amount: Int): Int {
+    pre {
+      amount > 0:
+        "We do not want to deposit any value equal to or below 0."
+    }
+  }
+
+  {...}
+
+}
+```
+
+In this example, assume we are depositing into a Vault. We want to make sure we don't accept an amount equal to or below 0 or it wouldn't make sense. We can do this using a `pre-condition`.
+
 # Quests
 
-For day one, we have two quests: `W2Q1` and `W2Q2`. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel.
+For day one, we have two quests: `W2Q1` and `W2Q2`. These quests will be pretty short because I know I'm throwing a lot at you today. Don't get overwhelmed, I will be here right alongside you to help whenever and wherever you need. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel or reach out to me in a DM if need be. You got this!!
 
 - `W2Q1` – Access Control Party
 
@@ -171,6 +268,6 @@ Note: this is very wrong ^
 
 - `W2Q2` – Dappiness
 
-
+For this quest, follow the [DappStarter Setup](). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
 
 Best of luck on your quests. You're doing great!!!
