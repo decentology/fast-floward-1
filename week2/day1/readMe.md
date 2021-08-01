@@ -1,3 +1,5 @@
+# This is not officially out yet.
+
 # Fast Floward | Week 2 | Day 1
 
 Helloooo! Jacob here. You will be stuck with me for the remaining parts of the bootcamp (Weeks 2 and 3). You have probably seen me in the Discord answering questions, so I hope I'm not a total stranger. Although I am not as awesome as Morgan, I hope we can have some fun and learn so much more about Flow/Cadence together.
@@ -8,8 +10,8 @@ You should begin by watching the videos below. The first video will wrap up Cade
 
 # Videos
 
-- [Access Control in Cadence]()
-- [Contract Interfaces & Post/Pre-Conditions]()
+- [Access Control in Cadence](https://www.youtube.com/watch?v=kkdjkA7oHHc)
+- [Contract Interfaces & Post/Pre-Conditions](https://www.youtube.com/watch?v=0CSyE_BYiEE)
 - [DappStarter Setup]()
 
 # Wrapping up Cadence Concepts
@@ -20,7 +22,7 @@ Last week, you went over a ton of Cadence concepts and basic syntax thanks to Mo
 
 Access Control which describes the way in which we can use things called "Access Modifiers" to increase the security of our smart contracts. 
 
-Previously, you may have declared all of your variable and functions using the `pub` keyword, like so:
+Previously, you may have declared all of your variables and functions using the `pub` keyword, like so:
 ```cadence
 pub let x: Bool
 
@@ -45,6 +47,7 @@ Well, what does scope even mean? Scope is the area in which you can access, modi
 
 1. All - this means we can access our thing from wherever we want. Inside the contract, in transactions and scripts, wherever.
 2. Current & Inner - this means we can only access our thing from where the thing is defined and inside of that.
+
 Ex. 
 ```cadence
 pub struct TestStruct {
@@ -61,6 +64,7 @@ pub struct TestStruct {
 }
 ```
 3. Containing Contract - this means we can access our thing anywhere inside the contract that our thing is defined.
+
 Ex. 
 ```cadence
 pub contract TestContract {
@@ -107,6 +111,7 @@ access(all) fun testFuncTwo() {}
 ```
 
 Write Scope - Current & Inner
+
 Read Scope - **All**
 
 ### access(account)
@@ -121,6 +126,7 @@ access(account) fun testFunc() {}
 ```
 
 Write Scope - Current & Inner
+
 Read Scope - Account
 
 ### access(contract)
@@ -135,6 +141,7 @@ access(contract) fun testFunc() {}
 ```
 
 Write Scope - Current & Inner
+
 Read Scope - Containing Contract
 
 ### priv/access(self)
@@ -151,6 +158,7 @@ access(self) fun testFuncTwo() {}
 ```
 
 Write Scope - Current & Inner
+
 Read Scope - Current & Inner
 
 ## Contract Interfaces
@@ -160,6 +168,7 @@ I know, I know. More Cadence. Ugh. We're almost done... just kidding! We will be
 Contract interfaces are very similar to what we learned last week with resources. They are a little different, though, and it will appear in some examples this week, so let's go over it quickly (don't worry, it's not that bad).
 
 Let's define a sample contract interface:
+
 ```cadence
 pub contract interface TestContractInterface {
   pub let x: Int
@@ -210,11 +219,12 @@ pub contract TestContract: TestContractInterface {
 
 As you can see, we had to define an `x` constant, a `readX` function that returns `x`, and a resource named `NFT` that implements `TestContractInterface.INFT` and has field named `y`. Note that `NFT` MUST be named "NFT" or we will receive an error. Similarly, we cannot define our own `INFT` resource interface in `TestContract`. We MUST have `NFT` implement `TestContractInterface.INFT` because that is how `TestContractInterface` is written.
 
-### A Side Note on Pre-Conditions & Post-Conditions
+## A Side Note on Pre-Conditions & Post-Conditions
 
-In the example above, you can see we used a `post-condition`. These are most often used in contract interfaces, but you will see them in normal contracts as well. They are both used as an extra security layer and as a means of expressing intent; it makes sure contract functions behave accordingly.
+In the example above, you can see we used a **post-condition**. These are most often used in contract interfaces, but you will see them in normal contracts as well. They are both used as an extra security layer and as a means of expressing intent; it makes sure contract functions behave accordingly.
 
 Let's look at the above example:
+
 ```cadence
 pub contract interface TestContractInterface {
   pub let x: Int
@@ -232,9 +242,10 @@ pub contract interface TestContractInterface {
 
 The post condition here is being used to make sure that whoever implements `TestContractInterface` MUST have a function named readX that returns `self.x`. Not any other value.
 
-Similarly, `pre-conditions` are used to check conditions are met before a function even excecutes, saving a bunch of time and adding security checks:
+Similarly, **pre-conditions** are used to check conditions are met before a function even excecutes. Here's an example:
+
 ```cadence
-pub contract interface TestContract {
+pub contract TestContract {
 
   {...}
 
@@ -243,6 +254,8 @@ pub contract interface TestContract {
       amount > 0:
         "We do not want to deposit any value equal to or below 0."
     }
+
+    {...}
   }
 
   {...}
@@ -250,21 +263,26 @@ pub contract interface TestContract {
 }
 ```
 
-In this example, assume we are depositing into a Vault. We want to make sure we don't accept an amount equal to or below 0 or it wouldn't make sense. We can do this using a `pre-condition`.
+In this example, assume we are depositing into our Vault. We want to make sure we don't accept an amount equal to or below 0 or it wouldn't make sense. We can do this using a **pre-condition**. It's important to describe why this is so useful:
+1) Developer Intent - Any person calling deposit knows amount must be > 0.
+2) Saves Time & Resources - If an amount <= 0 is deposited, we will save a ton of time by reverting the call immediately.
+3) Extra Layer of Security - We prevent harmful/malicious acts on our own Vaults.
 
 # Quests
 
-For day one, we have two quests: `W2Q1` and `W2Q2`. These quests will be pretty short because I know I'm throwing a lot at you today. Don't get overwhelmed, I will be here right alongside you to help whenever and wherever you need. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel or reach out to me in a DM if need be. You got this!!
+For day one, we have two quests: `W2Q1` and `W2Q2`. These quests will be pretty short because I know I'm throwing a lot at you today. 
+
+These quests also won't cover contract interfaces or post/pre-conditions because I don't want to overwhelm you (and you deserve to take a break!). I will be here right alongside you to help whenever and wherever you need. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel or reach out to me in a DM if need be. You got this!!
 
 - `W2Q1` – Access Control Party
 
-Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in SomeStruct. For each variable, tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function, simply tell me where they can be called. You will see I've marked 4 different areas (1, 2, 3 in some_contract.cdc, and 4 in some_script.cdc) where I want you to list.
+Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in SomeStruct. For each variable, tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function, simply tell me where they can be called. You will see I've marked 4 different areas (#1, #2, #3 in some_contract.cdc, and #4 in some_script.cdc) where I want you to list.
 
 Ex. In Area 1:
 1. Variables that can be read: a and c.
 2. Variables that can be modified: d.
 3. Functions that can be accessed: publicFunc and privateFunc
-Note: this is very wrong ^
+Note: this is very wrong ^, haha!
 
 - `W2Q2` – Dappiness
 
