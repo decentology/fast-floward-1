@@ -4,16 +4,21 @@ Helloooo! Jacob here. You will be stuck with me for the remaining parts of the b
 
 This week, we will wrap up our introduction to the Cadence programming language and begin to explore DappStarter, a platform created by the team at Decentology that allows developers like you to get a full-stack dApp running quickly.
 
-You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control. The second video will give you an introduction to DappStarter.
+You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control & Contract Interfaces. The second video will give you an introduction to DappStarter.
 
 # Videos
 
 - [Access Control in Cadence]()
+- [Contract Interfaces]()
 - [DappStarter Setup]()
 
-# Wrapping up Cadence - Access Control
+# Wrapping up Cadence
 
-Last week, you went over a ton of Cadence concepts and basic syntax thanks to Morgan. One thing that we didn't get to go over is Access Control, which covers the way in which we can use things called "Access Modifiers" to increase the security of our smart contracts. 
+Last week, you went over a ton of Cadence concepts and basic syntax thanks to Morgan. This week we're going to wrap it up, first by covering Access Control and then by going over Contract Interfaces.
+
+## Access Control
+
+Access Control which describes the way in which we can use things called "Access Modifiers" to increase the security of our smart contracts. 
 
 Previously, you may have declared all of your variable and functions using the `pub` keyword, like so:
 ```cadence
@@ -34,7 +39,7 @@ In the video, we only focus on the `var` rows, because `let` does not have a wri
 
 Note: [here is the playground from the video.](https://play.onflow.org/2cc441ff-d356-4e36-a45f-715278bd658f?type=account&id=b97af048-15a4-445d-95fe-a31becc2ce41)
 
-## Scope
+### Scope
 
 Well, what does scope even mean? Scope is the area in which you can access, modify, or call your "things" (variables, constants, fields, or functions). There are 4 types of scope:
 
@@ -76,7 +81,7 @@ pub contract TestContract {
 ```
 4. Account - this means we can access our thing anywhere inside the account that our thing is defined. Remember: we can deploy multiple contracts to one account.
 
-## pub(set)
+### pub(set)
 
 `pub(set)` only applies to variables, constants, and fields. Functions **cannot** be publically settable. It is also the most dangerous and easily accessible modifier.
 
@@ -88,7 +93,7 @@ pub(set) var x: String
 Write Scope - **All**
 Read Scope - **All**
 
-## pub/access(all)
+### pub/access(all)
 
 `pub` is the same thing as `access(all)`. This is the next layer down from pub(set).
 
@@ -104,7 +109,7 @@ access(all) fun testFuncTwo() {}
 Write Scope - Current & Inner
 Read Scope - **All**
 
-## access(account)
+### access(account)
 
 `access(account)` is a little more restrictive than `pub` due to its read scope.
 
@@ -118,7 +123,7 @@ access(account) fun testFunc() {}
 Write Scope - Current & Inner
 Read Scope - Account
 
-## access(contract)
+### access(contract)
 
 `access(contract)` is a little more restrictive than `access(account)` due to its read scope.
 
@@ -132,7 +137,7 @@ access(contract) fun testFunc() {}
 Write Scope - Current & Inner
 Read Scope - Containing Contract
 
-## priv/access(self)
+### priv/access(self)
 
 `priv` is the same thing as `access(self)`. This is the most restrictive (and safe) access modifier.
 
@@ -147,6 +152,8 @@ access(self) fun testFuncTwo() {}
 
 Write Scope - Current & Inner
 Read Scope - Current & Inner
+
+## Contract Interfaces
 
 # Quests
 
