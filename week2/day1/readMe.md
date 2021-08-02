@@ -6,7 +6,7 @@ This week, we will wrap up our introduction to the Cadence programming language 
 
 You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control. The second will go over Contract Interfaces and Pre/Post-Conditions. The third video will help you download your first Foundation from DappStarter. Lastly, there is a video covering general DappStarter architecture.
 
-**Please note**: there are a lot of videos to watch this week. Because of that, I made your quests much shorter. In fact, you should complete 1/2 of your quests by simply following along the "Getting our DappStarter dApp" video.
+**Please note**: there are a lot of videos to watch today. Because of that, I made your quests much shorter. In fact, you should complete 1/2 of your quests by simply following along the "Getting our DappStarter dApp" video.
 
 # Videos
 
