@@ -6,13 +6,14 @@ Helloooo! Jacob here. You will be stuck with me for the remaining parts of the b
 
 This week, we will wrap up our introduction to the Cadence programming language and begin to explore DappStarter, a platform created by the team at Decentology that allows developers like you to get a full-stack dApp running quickly.
 
-You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control & Contract Interfaces. The second will go over contract interfaces and pre/post-conditions. The third video will give you an introduction to DappStarter.
+You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control. The second will go over Contract Interfaces and Pre/Post-Conditions. The third video will give you an introduction to DappStarter. Also, please note: there are a lot of videos to watch this week. Because of that, I made your quests much shorter. In fact, you should complete 1/2 of your quests by simply following along the "Getting our DappStarter dApp" video.
 
 # Videos
 
-- [Access Control in Cadence](https://www.youtube.com/watch?v=kkdjkA7oHHc)
-- [Contract Interfaces & Post/Pre-Conditions](https://www.youtube.com/watch?v=0CSyE_BYiEE)
-- [Intro to Dappstarter](https://www.youtube.com/watch?v=hMfQoi7ZiS0)
+- [Access Control in Cadence](https://www.youtube.com/watch?v=_CNxRMIrN98)
+- [Contract Interfaces & Post/Pre-Conditions](https://www.youtube.com/watch?v=nONO4MSou5Y)
+- [Getting our DappStarter dApp](https://www.youtube.com/watch?v=-CuH95wtR-I)
+- [DappStarter Architecture Overview](https://youtu.be/scZZiFXfXa4)
 
 # Wrapping up Cadence Concepts
 
@@ -20,7 +21,7 @@ Last week, you went over a ton of Cadence concepts and basic syntax thanks to Mo
 
 ## Access Control
 
-Access Control which describes the way in which we can use things called "Access Modifiers" to increase the security of our smart contracts. 
+Access Control describes the way in which we can use things called "Access Modifiers" to increase the security of our smart contracts. 
 
 Previously, you may have declared all of your variables and functions using the `pub` keyword, like so:
 ```cadence
@@ -43,10 +44,10 @@ Note: [here is the playground from the video.](https://play.onflow.org/2cc441ff-
 
 ### Scope
 
-Well, what does scope even mean? Scope is the area in which you can access, modify, or call your "things" (variables, constants, fields, or functions). There are 4 types of scope:
+Scope is the area in which you can access, modify, or call your "things" (variables, constants, fields, or functions). There are 4 types of scope:
 
 1. All - this means we can access our thing from wherever we want. Inside the contract, in transactions and scripts, wherever.
-2. Current & Inner - this means we can only access our thing from where the thing is defined and inside of that.
+2. Current & Inner - this means we can only access our thing from where it is defined and inside of that.
 
 Ex. 
 ```cadence
@@ -54,7 +55,7 @@ pub struct TestStruct {
   
   pub var x: String
 
-  // The "current and inner scope" is here...
+  // The "current and inner scope" for 'x' is here...
 
   pub fun testFunc() {
     // and in here.
@@ -63,12 +64,14 @@ pub struct TestStruct {
   init(){...}
 }
 ```
-3. Containing Contract - this means we can access our thing anywhere inside the contract that our thing is defined.
+3. Containing Contract - this means we can access our thing anywhere inside the contract that it is defined.
 
 Ex. 
 ```cadence
 pub contract TestContract {
-  // The "containing contract" is here...
+
+  // The "containing contract" for 'x' is here...
+
   pub struct TestStruct {
     
     pub var x: String
@@ -83,7 +86,7 @@ pub contract TestContract {
   }
 }
 ```
-4. Account - this means we can access our thing anywhere inside the account that our thing is defined. Remember: we can deploy multiple contracts to one account.
+4. Account - this means we can access our thing anywhere inside the account that it is defined. Remember: we can deploy multiple contracts to one account.
 
 ### pub(set)
 
@@ -95,6 +98,7 @@ pub(set) var x: String
 ```
 
 Write Scope - **All**
+
 Read Scope - **All**
 
 ### pub/access(all)
@@ -190,7 +194,7 @@ pub contract interface TestContractInterface {
 }
 ```
 
-There's multiple things going on here. First, we've defined a constant named `x`, a function named `readX`, a resoure interface named `INFT`, and a resource named `NFT` that implements the `INFT` resource interface. But what is this doing? What's the point here?
+There's multiple things going on here. First, we've defined a constant named `x`, a function named `readX`, a resource interface named `INFT`, and a resource named `NFT` that implements the `INFT` resource interface. But what is this doing? What's the point here?
 
 Well, we can use this contract interface to require other contracts to implement its fields, functions, variables, and constants. Let's use our example from above:
 
@@ -288,7 +292,7 @@ The action cards that have an orange Submit button on them send transactions to 
 
 ## Widgets
 
-**Widgets** are the places we can select parameters inside our **action cards**. There are two main types of widgets you should know:
+**Widgets** are the pieces of UI we use to select parameters inside our **action cards**. There are two main types of widgets you should know:
 
 ![Account Widget](images/account_widget.png)
 *An example of an account widget*
@@ -306,11 +310,11 @@ The action cards that have an orange Submit button on them send transactions to 
 
 For day one, we have two quests: `W2Q1` and `W2Q2`. These quests will be pretty short because I know I'm throwing a lot at you today. 
 
-These quests also won't cover contract interfaces or post/pre-conditions because I don't want to overwhelm you (and you deserve to take a break!). I will be here right alongside you to help whenever and wherever you need. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel or reach out to me in a DM if need be. You got this!!
+These quests also won't cover contract interfaces or post/pre-conditions because I don't want to overwhelm you. I will be here right alongside you to help whenever and wherever you need. If you need assistance while solving these, feel free to ask questions on Discord in the **burning-questions** channel or reach out to me in a DM if need be. You got this!!
 
 - `W2Q1` – Access Control Party
 
-Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in SomeStruct. For each variable, tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function, simply tell me where they can be called. You will see I've marked 4 different areas (#1, #2, #3 in some_contract.cdc, and #4 in some_script.cdc) where I want you to list.
+Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in some_contract.cdc. You will see I've marked 4 different areas (#1, #2, #3 in some_contract.cdc, and #4 in some_script.cdc) where I want you to answer the following task: For each variable, tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function, simply tell me where they can be called.
 
 Ex. In Area 1:
 1. Variables that can be read: a and c.
@@ -320,6 +324,6 @@ Note: this is very wrong ^, haha!
 
 - `W2Q2` – Dappiness
 
-For this quest, follow the [Intro to Dappstarter Video](https://www.youtube.com/watch?v=hMfQoi7ZiS0). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
+For this quest, follow the [Getting our DappStarter dApp](https://www.youtube.com/watch?v=-CuH95wtR-I). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
 
 Best of luck on your quests, you got this. See you next time Cadence adventurers ~
