@@ -10,8 +10,8 @@ Let's get into it.
 
 # Videos
 
-- [Kitty Items Contract Overview](https://studio.youtube.com/video/Et26OpyKnx0/edit)
-- [What a Completed Day 2 Will Look Like]()
+- [Kitty Items Contract Overview](https://www.youtube.com/watch?v=zFtc4QLrxas)
+- [What a Completed Day 2 Will Look Like](https://www.youtube.com/watch?v=7L8ixcpB_tE)
 # Project Overview
 
 ![Project Overview](images/kitty-items.PNG)
