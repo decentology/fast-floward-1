@@ -274,6 +274,8 @@ In this example, assume we are depositing into our Vault. We want to make sure w
 
 # Intro to DappStarter
 
+You can find DappStarter here: https://dappstarter.decentology.com/
+
 Before reading this section, make sure to watch the associated video above. This section will go over some terminology we use for things you'll encounter in DappStarter so it will make sense for upcoming days.
 
 ## Action Cards
@@ -316,7 +318,7 @@ These quests also won't cover contract interfaces or post/pre-conditions because
 
 - `W2Q1` – Access Control Party
 
-Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in some_contract.cdc. You will see I've marked 4 different areas (#1, #2, #3 in some_contract.cdc, and #4 in some_script.cdc) where I want you to answer the following task: For each variable, tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function, simply tell me where they can be called.
+Look at the w2q1 folder. For this quest, you will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, privateFunc, contractFunc) defined in some_contract.cdc. You will see I've marked 4 different areas (#1, #2, #3 in some_contract.cdc, and #4 in some_script.cdc) where I want you to answer the following task: For each variable (a, b, c, and d), tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function (publicFunc, contractFunc, and privateFunc), simply tell me where they can be called.
 
 Ex. In Area 1:
 1. Variables that can be read: a and c.
