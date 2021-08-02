@@ -12,7 +12,7 @@ You should begin by watching the videos below. The first video will wrap up Cade
 
 - [Access Control in Cadence](https://www.youtube.com/watch?v=kkdjkA7oHHc)
 - [Contract Interfaces & Post/Pre-Conditions](https://www.youtube.com/watch?v=0CSyE_BYiEE)
-- [DappStarter Setup]()
+- [Intro to Dappstarter](https://www.youtube.com/watch?v=hMfQoi7ZiS0)
 
 # Wrapping up Cadence Concepts
 
@@ -274,6 +274,14 @@ Before reading this section, make sure to watch the associated video above. This
 
 ## Action Cards
 
+![Transaction Action Card](images/transaction_action_card.png)
+*An example of a action card that sends a transaction*
+
+
+![Script Action Card](images/script_action_card.png)
+*An example of a action card that executes a script*
+
+
 Action cards are used to run transactions and scripts on the UI Harness. They each have different **widgets** inside them so we can pass parameters to our transactions and scripts. This can be very useful, because we no longer have to type out crazy json-formatted stuff into our command line. Instead, we can easily select accounts, insert numbers, etc.
 
 The action cards that have an orange Submit button on them send transactions to the blockchaiin. Action cards that have a green View button execute scripts.
@@ -282,7 +290,13 @@ The action cards that have an orange Submit button on them send transactions to 
 
 **Widgets** are the places we can select parameters inside our **action cards**. There are two main types of widgets you should know:
 
+![Account Widget](images/account_widget.png)
+*An example of an account widget*
+
 1) Account widgets - these widgets allow you to select an account. We can use these to select signers, recipients of a transfer, etc.
+
+![Text Widget](images/text_widget.png)
+*An example of an account widget*
 
 2) Text widgets - these widgets allow us to type in numbers. We can use these to put in an amount, a price for our Kitty Items, etc. 
 
@@ -306,6 +320,6 @@ Note: this is very wrong ^, haha!
 
 - `W2Q2` – Dappiness
 
-For this quest, follow the [Intro to Dappstarter Video](). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
+For this quest, follow the [Intro to Dappstarter Video](https://www.youtube.com/watch?v=hMfQoi7ZiS0). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
 
 Best of luck on your quests, you got this. See you next time Cadence adventurers ~
