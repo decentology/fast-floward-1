@@ -279,11 +279,11 @@ Before reading this section, make sure to watch the associated video above. This
 ## Action Cards
 
 ![Transaction Action Card](images/transaction_action_card.png)
-*An example of a action card that sends a transaction*
+*An example of an action card that sends a transaction*
 
 
 ![Script Action Card](images/script_action_card.png)
-*An example of a action card that executes a script*
+*An example of an action card that executes a script*
 
 
 Action cards are used to run transactions and scripts on the UI Harness. They each have different **widgets** inside them so we can pass parameters to our transactions and scripts. This can be very useful, because we no longer have to type out crazy json-formatted stuff into our command line. Instead, we can easily select accounts, insert numbers, etc.
@@ -295,11 +295,13 @@ The action cards that have an orange Submit button on them send transactions to 
 **Widgets** are the pieces of UI we use to select parameters inside our **action cards**. There are two main types of widgets you should know:
 
 ![Account Widget](images/account_widget.png)
+
 *An example of an account widget*
 
 1) Account widgets - these widgets allow you to select an account. We can use these to select signers, recipients of a transfer, etc.
 
 ![Text Widget](images/text_widget.png)
+
 *An example of an account widget*
 
 2) Text widgets - these widgets allow us to type in numbers. We can use these to put in an amount, a price for our Kitty Items, etc. 
