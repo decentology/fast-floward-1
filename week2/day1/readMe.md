@@ -1,12 +1,12 @@
-# This is not officially out yet.
-
 # Fast Floward | Week 2 | Day 1
 
 Helloooo! Jacob here. You will be stuck with me for the remaining parts of the bootcamp (Weeks 2 and 3). You have probably seen me in the Discord answering questions, so I hope I'm not a total stranger. Although I am not as awesome as Morgan, I hope we can have some fun and learn so much more about Flow/Cadence together.
 
-This week, we will wrap up our introduction to the Cadence programming language and begin to explore DappStarter, a platform created by the team at Decentology that allows developers like you to get a full-stack dApp running quickly.
+This week, we will wrap up our introduction to the Cadence programming language and begin to explore DappStarter, a platform created by us at Decentology that allows developers like you to get a full-stack dApp running quickly.
 
-You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control. The second will go over Contract Interfaces and Pre/Post-Conditions. The third video will give you an introduction to DappStarter. Also, please note: there are a lot of videos to watch this week. Because of that, I made your quests much shorter. In fact, you should complete 1/2 of your quests by simply following along the "Getting our DappStarter dApp" video.
+You should begin by watching the videos below. The first video will wrap up Cadence concepts by going over Access Control. The second will go over Contract Interfaces and Pre/Post-Conditions. The third video will help you download your first Foundation from DappStarter. Lastly, there is a video covering general DappStarter architecture.
+
+**Please note**: there are a lot of videos to watch this week. Because of that, I made your quests much shorter. In fact, you should complete 1/2 of your quests by simply following along the "Getting our DappStarter dApp" video.
 
 # Videos
 
