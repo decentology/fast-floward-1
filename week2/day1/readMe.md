@@ -268,6 +268,26 @@ In this example, assume we are depositing into our Vault. We want to make sure w
 2) Saves Time & Resources - If an amount <= 0 is deposited, we will save a ton of time by reverting the call immediately.
 3) Extra Layer of Security - We prevent harmful/malicious acts on our own Vaults.
 
+# Intro to DappStarter
+
+Before reading this section, make sure to watch the associated video above. This section will go over some terminology we use for things you'll encounter in DappStarter so it will make sense for upcoming days.
+
+## Action Cards
+
+Action cards are used to run transactions and scripts on the UI Harness. They each have different **widgets** inside them so we can pass parameters to our transactions and scripts. This can be very useful, because we no longer have to type out crazy json-formatted stuff into our command line. Instead, we can easily select accounts, insert numbers, etc.
+
+The action cards that have an orange Submit button on them send transactions to the blockchaiin. Action cards that have a green View button execute scripts.
+
+## Widgets
+
+**Widgets** are the places we can select parameters inside our **action cards**. There are two main types of widgets you should know:
+
+1) Account widgets - these widgets allow you to select an account. We can use these to select signers, recipients of a transfer, etc.
+
+2) Text widgets - these widgets allow us to type in numbers. We can use these to put in an amount, a price for our Kitty Items, etc. 
+
+*Note*: in any text widgets that have an "Amount" label, you MUST use numbers that have a decimal. For example, if you want to input 30, you have to put 30.0. This is because "Amount" takes in Fixed numbers, not Integers.
+
 # Quests
 
 For day one, we have two quests: `W2Q1` and `W2Q2`. These quests will be pretty short because I know I'm throwing a lot at you today. 
@@ -286,6 +306,6 @@ Note: this is very wrong ^, haha!
 
 - `W2Q2` – Dappiness
 
-For this quest, follow the [DappStarter Setup](). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
+For this quest, follow the [Intro to Dappstarter Video](). Get the Fast Floward Foundation on DappStarter and attempt to run your project as instructed in the video. If you can `yarn start`, see the UI Harness, and submit all the Day 1 **action cards**, you are done! Simply submit a screenshot of the return values on the action cards :)
 
-Best of luck on your quests. You're doing great!!!
+Best of luck on your quests, you got this. See you next time Cadence adventurers ~

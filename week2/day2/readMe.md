@@ -10,19 +10,19 @@ Let's get into it.
 
 # Videos
 
-- [Contract #1 - Kibble]()
-- [Contract #2 - Kitty Items]()
-- [Contract #3 - Kitty Items Market]()
-
+- [Kitty Items Contract Overview](https://studio.youtube.com/video/Et26OpyKnx0/edit)
+- [What a Completed Day 2 Will Look Like]()
 # Project Overview
 
-The Fast Floward Foundation is built from Kitty Items. Kitty Items is a sample project that the Flow team provides to beginners in the Flow universe to learn more about the Cadence language. I took this project and re-vamped it on DappStarter to give an even better learning experience for you. Specifically, I removed some parts of the contracts, transactions, and scripts so we can build it back up together & in quests. I also re-wrote the Marketplace contract and commented the living heck out the code to hopefully make it understandable, although there will be speed bumps along the way.
+![Project Overview](images/kitty-items.PNG)
 
-There are a few things to know.
+The Fast Floward Foundation is built from Kitty Items. Kitty Items is a sample project that the Flow team provides to beginners in the Flow universe to learn more about the Cadence language. I took this project and re-wrote it on DappStarter to give an even better learning experience for you. Specifically, I removed some parts of the contracts, transactions, and scripts so we can build it back up together in quests. I also re-wrote the Marketplace contract and commented the living heck out the code to hopefully make it understandable, although there will still be speed bumps along the way.
+
+The following is a summary of the long (i'm so sorry) video that introduces you to each of the 3 contracts.
 
 ## Kibble
 
-Kibble is a type of Fungible Token that we define in `Kibble.cdc`. You saw an example of Fungible Tokens when you used Flow Token during Week 1. They are represented as a simple `UFix64` and are passed around through `Vault` resources. They are minted by the `Minter` resource. That's all you really need to know.
+Kibble is a type of Fungible Token that we define in `Kibble.cdc`. You saw an example of Fungible Tokens when you used Flow Token during Week 1. They are represented as a simple `UFix64` and are passed around through `Vault` resources. They are minted by the `Minter` resource. That's all you really need to know for now.
 
 Note: We will be making modifications to this contract. It is NOT fully implemented in the code you have. You will complete it during the W2Q3 quest.
 
@@ -34,19 +34,19 @@ A Kitty Item is a Non-Fungible Token (NFT). They are represented by an `NFT` res
 
 The Kitty Items Market is where users will list their Kitty Items for sale. Each account that wants to put their Kitty Items for sale will store a `SaleCollection` resource in their account. They can then specify a price and the Kitty Item they want to list for sale, allowing any user to purchase from it with Kibble.
 
+It is important to note that the `SaleCollection` does **not** actually store the NFTs that are for sale. They only store the IDs of the NFTs that the owner wants to sale. The NFTs are only removed from the owner's `KittyItems.Collection` once they are bought, in which case the SaleCollection withdraws them from `self.ownerCollection`. The `SaleCollection` also stores the owner's Kibble Vault to deposit a Vault into it when a purchase it made.
+
 # Quests
 
-We have two quests today, `W2Q3` and `W2Q4`. You will **ONLY** be modifying Kibble.cdc.
+We have two quests today, `W2Q3` and `W2Q4`. You will **ONLY** be modifying Kibble.cdc. Please make sure to watch the video bove on what W2Q3 and W2Q4 will look like.
 
 - `W2Q3` – Hey, Where'd the Functions Go?
 
 Look at Kibble.cdc. If you look in the `Vault` resource, you may notice the `deposit` function is gone. Similarly, the `mintTokens` function in the `Minter` resource isn't implemented. Your job is to follow the comments I wrote in the code and implement those two functions yourself. You can read the surrounding comments to also give you some hints.
 
-Then, go to the UI Harness, and see if the **action card** that says, "DAY 2: Kibble - Mint Tokens" works. To check if it works, go to the "DAY 1: Kibble - Get Balance" **action card** and see if Kibble were minted into the account you chose.
+Then, `yarn start` your dApp and go to the UI Harness. See if the **action card** that says "DAY 2: Kibble - Mint Tokens" works. To check if it works, go to the "DAY 1: Kibble - Get Balance" **action card** and see if Kibble was minted into the account you chose.
 
-Note: Before you mint Kibble into an account, you **must** setup the account to receive Kibble first. This is done with the "DAY 1: Kibble - Setup Account" **action card**.
-
-Note 2: For the "Amount" option, you must imput a number with a decimal. For example, if you want to mint 30 Kibble into Alice's account, you must write "30.0" in the box.
+Note: in the `deposit` function, I ask you to use a new syntax: `as!`. You can find an example of this in KittyItems.cdc if it helps.
 
 - `W2Q4` – And Withdraw Too?!?!?
 
@@ -54,9 +54,7 @@ You'll notice that the `withdraw` function in the `Vault` resource is gone as we
 
 Anyways, do the same thing as W2Q3. Implement the `withdraw` function by following the comments and hints I left for you. Then, go to the UI Harness, and see if the **action card** that says, "DAY 2: Kibble - Transfer Tokens" works. You can check to see if it works with the "DAY 1: Kibble - Get Balance" **action card** to see if Kibble was transferred from one account to another.
 
-Note: Before you mint Kibble into an account, you **must** setup the account to receive Kibble first. This is done with the "DAY 1: Kibble - Setup Account" **action card**.
-
-Note 2: For the "Amount" option, you must imput a number with a decimal. For example, if you want to transfer 30 Kibble from the Admin -> Alice, you must write "30.0" in the box.
+Good luck on your quests. See you next time Cadence adventurers ~
 
 
 
