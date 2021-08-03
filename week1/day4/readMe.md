@@ -25,7 +25,7 @@ A quick review of Day 3 before we get going.
 
 # Office Hours
 
-- [Placeholder]()
+- [Office Hours #4](https://www.youtube.com/watch?v=Mf6f1Il7unc)
 
 # Flow Client Library – FCL
 

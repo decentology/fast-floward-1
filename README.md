@@ -12,11 +12,9 @@
 
 * **我们将在一周内举行多次答疑**，以帮助您完成学习任务。
 
-* **You can expect about 1.5 to 2 hours worth of videos each week** (note that Week 1 will likely be a bit more) and about 2 to 2.5 hours to spend on the quests throughout the week (this is a minimum, but since they are creative in nature, you can certainly spend more time if you’d like).
 * **您每周大概需要观看 1.5 到 2 小时的教学视频**（请注意，第 1 周可能会多一点），同时，每个星期花在作业任务上的时间大约为 2 到 2.5 小时（这是最低的时间要求，但由于它们本质上非常具有创造性，因此如果您愿意，您可以花更多时间来完成作业）。
 
-* **We highly encourage you to complete all quests.** If you do, we have a special surprise for you at the end of the bootcamp! :wink:
-* **我们强烈鼓励您完成所有的作业。** 如果您完成了，我们会在训练营结束时为您准备一个特别的惊喜！ ：眨眼：
+* **我们强烈鼓励您完成所有的作业。** 如果您完成了，我们会在训练营结束时为您准备一个特别的惊喜！ :wink:
 
 # 👋 极速Flow学习之旅(Fast Floward)社区
 通过参与 Fast Floward，您将成为这个社区的一员！我们有一群人在这里为您服务，并希望尽我们所能帮助您。
@@ -30,12 +28,10 @@
 
 如果您有任何问题，请随时与我们联系，或者如果您想聊天并了解有关如何参与 Decentology 和 Flow 的更多信息，我们随时在这里为您提供帮助。
 
-
-
 # ☕️ 答疑时间
 我们将安排答疑时间来帮助您完成作业任务。在答疑时间里，您可以对阻碍您完成作业任务的任何疑问，提出问题并寻求帮助。
 
-**🗓时间:** 请查看 [这个答疑时间的日历](https://calendar.google.com/calendar/u/0?cid=Y18wNDM5bnFmdjlpMWNwN2FvbmQ5ZmprMjVhZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t) . 该日历将每周更新。
+**🗓时间:** 请查看 [这个答疑时间的日历](https://calendar.google.com/calendar/ical/c_0439nqfv9i1cp7aond9fjk25ag%40group.calendar.google.com/public/basic.ics) . 该日历将每周更新。
 
 **📍地点:** 答疑时间将在 Discord 的#office-hours 语音频道中举行（见下图）。
 <img src="https://uploads-ssl.webflow.com/5dea4f8b31edea3328b9a0f6/60fda995e941fc666d92761c_Screen%20Shot%202021-07-25%20at%202.11.42%20PM.png"
