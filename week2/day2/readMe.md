@@ -51,6 +51,16 @@ The Kitty Items Market is where users will list their Kitty Items for sale. Each
 
 It is important to note that the `SaleCollection` does **not** actually store the NFTs that are for sale. They only store the IDs of the NFTs that the owner wants to sale. The NFTs are only removed from the owner's `KittyItems.Collection` once they are bought, in which case the SaleCollection withdraws them from `self.ownerCollection`. The `SaleCollection` also stores the owner's Kibble Vault to deposit a Vault into it when a purchase it made.
 
+# Helpful Overview of DappStarter
+
+DappStarter might be confusing at first. You might be asking... "okay, I'm changing the contracts, but how is this working? What is DappStarter doing behind the scenes to make all of this work?"
+
+We will be answering this question throughout this week so that by the end of Week 2, you will understand how DappStarter ties everything together. For now, you can use this diagram to help you:
+
+![DappStarter Overview](images/dappstarter_overview.PNG)
+
+Although you may not understand what the DappLib is or even the UI Harness, this will make sense in the upcoming days. You can use this diagram as a reference for now, though.
+
 # Quests
 
 We have two quests today, `W2Q3` and `W2Q4`. You will **ONLY** be modifying Kibble.cdc. Please make sure to watch the video above on what W2Q3 and W2Q4 will look like.
