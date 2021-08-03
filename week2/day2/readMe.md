@@ -1,5 +1,3 @@
-# This is not officially out yet.
-
 # Fast Floward | Week 2 | Day 2
 
 And we're back, better than ever. Happy Tuesday <3 If you have already completed Week 2 Day 1 content, I'm glad you survived! We got some more fun stuff to do today. 
@@ -8,27 +6,44 @@ Today, we're going to be going over all 3 of the contracts in the Fast Floward F
 
 Let's get into it.
 
+# Week 2 Day 1 Summary
+- We learned about access control
+- We learned about contract interfaces and did some pre/post-conditions
+- We went over general DappStarter architecture
+- We downloaded our first dApp from https://dappstarter.decentology.com/
+
 # Videos
 
 - [Kitty Items Contract Overview](https://www.youtube.com/watch?v=zFtc4QLrxas)
 - [What a Completed Day 2 Will Look Like](https://www.youtube.com/watch?v=7L8ixcpB_tE)
+
 # Project Overview
 
 ![Project Overview](images/kitty-items.PNG)
 
 The Fast Floward Foundation is built from Kitty Items. Kitty Items is a sample project that the Flow team provides to beginners in the Flow universe to learn more about the Cadence language. I took this project and re-wrote it on DappStarter to give an even better learning experience for you. Specifically, I removed some parts of the contracts, transactions, and scripts so we can build it back up together in quests. I also re-wrote the Marketplace contract and commented the living heck out the code to hopefully make it understandable, although there will still be speed bumps along the way.
 
-The following is a summary of the long (i'm so sorry) video that introduces you to each of the 3 contracts.
+The following is a summary of the long (i'm so sorry) video that introduces you to each of the 3 contracts. I will not be describing in-depth what all individual resources, structs, etc are in the contract, because there are already extensive comments in the contracts themselves. So, if you have any questions, I encourage you to read the following summary, watch the video, read the comments in the contract, and then ask me in the burning questions channel :D
+
+# Project Contracts
+
+The contracts in the video can be found inside `/packages/dapplib/contracts/Project` within your dApp.
 
 ## Kibble
 
 Kibble is a type of Fungible Token that we define in `Kibble.cdc`. You saw an example of Fungible Tokens when you used Flow Token during Week 1. They are represented as a simple `UFix64` and are passed around through `Vault` resources. They are minted by the `Minter` resource. That's all you really need to know for now.
 
-Note: We will be making modifications to this contract. It is NOT fully implemented in the code you have. You will complete it during the W2Q3 quest.
+Note that Kibble.cdc implements the FungibleToken contract interfaces, making our Kibble an official FungibleToken. It also serves as a good example of how to set up your own FungibleToken and start experimenting with that on your own :)
+
+Note: We will be making modifications to this contract. It is NOT fully implemented in the code you have. You will complete it during the W2Q3 & W2Q4 quests.
 
 ## Kitty Items
 
-A Kitty Item is a Non-Fungible Token (NFT). They are represented by an `NFT` resource and are stored in a `Collection` resource that will lie in each account, very similar to the Collection you saw for `Picture` resources in Week 1. They are minted by the `NFTMinter` resource.
+A Kitty Item is a Non-Fungible Token (NFT). They are represented by an `NFT` resource and are stored in a `Collection` resource that will lie in each account, very similar to the Collection you saw for `Picture` resources in Week 1. They are minted by the `NFTMinter` resource. 
+
+We will refer to Kitty Items and NFTs as the same thing. Also note that the Kitty Items contract implements the NonFungibleToken contract interface. This means that the NFT resource implements NonFungibleToken.INFT, meaning it is officially an NFT by Flow standard. If we wanted to, our Kitty Items could be traded, bought, or sold on any NFT marketplace like OpenSea because of this. 
+
+Lastly, similar to how Kibble is a good example for a FungibleToken, Kitty Items serves as a great example for how we might want to construct our own NFT Contracts. We won't be doing that this week, but it might be a good idea to start experimenting with how you'd define your own NFTs called JacobsTheBestTeacherEver just like KittyItems.
 
 ## Kitty Items Market
 
@@ -38,7 +53,7 @@ It is important to note that the `SaleCollection` does **not** actually store th
 
 # Quests
 
-We have two quests today, `W2Q3` and `W2Q4`. You will **ONLY** be modifying Kibble.cdc. Please make sure to watch the video bove on what W2Q3 and W2Q4 will look like.
+We have two quests today, `W2Q3` and `W2Q4`. You will **ONLY** be modifying Kibble.cdc. Please make sure to watch the video above on what W2Q3 and W2Q4 will look like.
 
 - `W2Q3` – Hey, Where'd the Functions Go?
 
