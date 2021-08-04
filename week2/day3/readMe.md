@@ -18,13 +18,17 @@ From Nik's architecture video on DappStarter during Week 2 Day 1, we saw that th
 
 You might be wondering how these DappLib functions are called. You don't have to worry about this for now, but I'll give you a short summary: They are called on the client side by our **action cards**. We will learn more about **action cards** and how to call our DappLib functions from the client tomorrow. 
 
-**For now, just know that the client is already set up to call our DappLib functions that you'll be writing in your W2Q5 today.**
+We can take a quick look at the diagram from yesterday's readMe:
+
+![DappStarter Overview](/images/dappstarter_overview.PNG)
+
+**Today, we will be looking at the DappLib and Transactions/Script. For now, just know that the client is already set up to call our DappLib functions that you'll be writing in your W2Q5 today.**
 
 ## Setting Up a Transaction
 
 Let's take a look at how to set up a DappLib function for a transaction:
 
-
+![DappLib Transaction](images/dapplib-transaction)
 
 Above is an example of how to set up a DappLib function to call a transaction. We start off by setting result to an async call to `Blockchain.post` because it's a transaction. We pass `Blockchain.post` an object that takes in two things: a config (which we can set to `DappLib.getConfig()`), and a `roles` object that takes in a `proposer`. 
 
@@ -50,7 +54,7 @@ return {
 
 ## Setting Up a Script
 
-
+![DappLib Script](/images/dapplib-script.png)
 
 Setting up a script function, like the picture above, is very similar to how we set up a transaction function. There are a few key differences though:
 
