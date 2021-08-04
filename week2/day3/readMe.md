@@ -22,9 +22,9 @@ We can take a quick look at the diagram from yesterday's readMe:
 
 ![DappStarter Overview](images/dappstarter_overview.PNG)
 
-**Today, we will be looking at the DappLib and Transactions/Script. For now, just know that the client is already set up to call our DappLib functions that you'll be writing in your W2Q5 today.**
+**Today, we will be looking at the DappLib and Transactions/Scripts. For now, just know that the client is already set up to call our DappLib functions that you'll be writing in your W2Q5 today.**
 
-## Setting Up a Transaction
+## Setting Up a Transaction Function in DappLib
 
 Let's take a look at how to set up a DappLib function for a transaction:
 
@@ -42,14 +42,18 @@ Next, we put an object that takes in all the parameters of our transaction. If y
 
 ```javascript
 {
-  account: {value: data.account, type: t.Address},
+  recipient: {value: data.recipient, type: t.Address},
   amount: {value: data.amount, type: t.UFix64}
 }
 ```
 
 **Note**: If the type is `t.UInt64`, you must wrap the value in a `parseInt()`. Here's an example:
 
-`typeID: {value: parseInt(data.typeID), type: t.UInt64}`
+```javascript
+{
+  typeID: {value: parseInt(data.typeID), type: t.UInt64}
+}
+```
 
 Lastly, we return the result to the client. For transactions, you can always put this piece of code:
 
@@ -61,7 +65,9 @@ return {
 }
 ```
 
-## Setting Up a Script
+This is what is returned to the client. If you use an **action card** that has a orange Submit button (meaning it's a transaction), you'll see a green rectangle appear with the label 'Transaction Hash'. This is due to the returned object above. We will see how this differs for scripts.
+
+## Setting Up a Script Function in DappLib
 
 ![DappLib Script](images/dapplib-script.png)
 
@@ -88,8 +94,11 @@ The label is what will show up next to the return value on the client side.
 Cadence transactions and scripts can be found in `packages/dapplib/interactions`. They are separated by Kibble, Kitty Items, and Kitty Items Market. 
 
 If you click on these cadence files, you may notice the way we import contracts is unique. Instead of doing something like:
+
 `import KittyItems from './kittyitems.cdc'`
+
 we do:
+
 `import KittyItems from Project.KittyItems`
 
 This makes things a lot simpler and easier to read. The reason it is `Project.KittyItems` is because our KittyItems contract is defined in the `contracts/Project` folder. You can see this naming in `src/dapp-config.json` as well.
@@ -100,11 +109,11 @@ I have one quest for you today, `W2Q5`. You will **ONLY** be modifying `transact
 
 - `W2Q5` – The Mighty DappLib
 
-For this quest, I want you to look for all the non-implemented functions in your `dapp-lib.js`. There are 2 transaction functions and 1 script function I want you to implement. I have already defined for you who the proposer is for each function, so your job is to set up the function as described above and make sure you pass it the correct parameters for the transaction/script you're calling.
+For this quest, I want you to look for all the non-implemented functions in your `dapp-lib.js`. You can find them by searching for 'TODO' in the file. There are 2 transaction functions and 1 script function I want you to implement. I have already defined for you who the proposer is for each function, so your job is to set up the function as described above and make sure you pass it the correct parameters for the transaction/script you're calling.
 
 Next, you will have to implement the transactions and scripts themselves. There are 2 transactions (`transactions/kittyitems/mint_kitty_item.cdc`, `transactions/kittyitems/transfer_kitty_item.cdc`) and 1 script (`scripts/kittyitems/read_collection_ids.cdc`) you will need to implement. I have left comments for you to help you in your journey.
 
-Once you have completed this quest, you should be able to successfully run all of the DAY 3 action cards. Please submit a screenshot of working DAY 3 action cards, as well as your dapp-lib and transactions/scripts. I have described what your action cards should look like once you've completed this quest at the end of [this video.](https://www.youtube.com/watch?v=zFtc4QLrxas)
+Once you have completed this quest, you should be able to successfully run all of the DAY 3 **action cards**. Please submit a screenshot of working DAY 3 action cards, as well as your dapp-lib and transactions/scripts. I have described what your action cards should look like once you've completed this quest at the end of [this video.](https://www.youtube.com/watch?v=zFtc4QLrxas)
 
 
 Good luck on your quests. See you next time DappStarter adventurers ~
