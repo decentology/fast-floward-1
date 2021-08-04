@@ -14,13 +14,13 @@ Let's get right into it.
 
 The DappLib lies in `packages/dapplib/src/dapp-lib.js`
 
-From Nik's architecture video on DappStarter during Week 2 Day 1, we saw that the DappLib is extremely important in our project. In it are a bunch of Javascript functions that call transactions and scripts using `Blockchain.post` (for transactions) or `Blockchain.get` (for scripts).
+From [Nik's architecture video on DappStarter during Week 2 Day 1](https://youtu.be/scZZiFXfXa4), we saw that the DappLib is extremely important in our project. In it are a bunch of Javascript functions that call transactions and scripts using `Blockchain.post` (for transactions) or `Blockchain.get` (for scripts).
 
 You might be wondering how these DappLib functions are called. You don't have to worry about this for now, but I'll give you a short summary: They are called on the client side by our **action cards**. We will learn more about **action cards** and how to call our DappLib functions from the client tomorrow. 
 
 We can take a quick look at the diagram from yesterday's readMe:
 
-![DappStarter Overview](/images/dappstarter_overview.PNG)
+![DappStarter Overview](images/dappstarter_overview.PNG)
 
 **Today, we will be looking at the DappLib and Transactions/Script. For now, just know that the client is already set up to call our DappLib functions that you'll be writing in your W2Q5 today.**
 
@@ -28,15 +28,24 @@ We can take a quick look at the diagram from yesterday's readMe:
 
 Let's take a look at how to set up a DappLib function for a transaction:
 
-![DappLib Transaction](images/dapplib-transaction)
+![DappLib Transaction](images/dapplib-transaction.png)
 
-Above is an example of how to set up a DappLib function to call a transaction. We start off by setting result to an async call to `Blockchain.post` because it's a transaction. We pass `Blockchain.post` an object that takes in two things: a config (which we can set to `DappLib.getConfig()`), and a `roles` object that takes in a `proposer`. 
+Above is an example of how to set up a DappLib function to call a transaction. We start off by setting result to an async call to `Blockchain.post` because it's a transaction. We pass the first parameter of `Blockchain.post` an object that takes in two things: 
+1) a config (which we can set to `DappLib.getConfig()`)
+2) a `roles` object that takes in a `proposer`
 
-The `proposer` is whoever we want to sign the transaction. Usually, we will set this to `data.signer`, which comes from the data object that is passed in from the client. You don't have to worry about how this works until tomorrow's video, so I have put the `proposer` for you in a comment before every function. Sometimes, you'll see that the `proposer` is `config.accounts[0]`. This is because if you look in `dapp-config.json`, you'll see an accounts object. We're using `accounts[0]` to get the account that all the contracts are deployed to. This is useful if we want the `proposer` to ALWAYS be the account that the contracts are deployed to (ex. if we've stored a Minter resource in the account's storage that the contract is deployed to).
+The `proposer` is whoever we want to sign the transaction. Usually, we will set this to `data.signer`, which comes from the data object that is passed in from the client. You don't have to worry about how this works until tomorrow's video, so I have put the `proposer` for you in a comment before every function. Sometimes, you'll see that the `proposer` is `config.accounts[0]`. This is because if you look in `dapp-config.json`, you'll see an accounts object. We're using `accounts[0]` to get the account that all our Project contracts are deployed to. This is useful if we want the `proposer` to ALWAYS be the account that the contracts are deployed to (ex. if we've stored a Minter resource in the account's storage that the contract is deployed to).
 
-After, we put in 'quotes' the name of the directory the script/transaction lies in followed by an underscore, and then the script/transaction file name. For example, if we want to call `transactions/kibble/mint_tokens.cdc`, we will put 'kibble_mint_tokens'.
+Our next parameter to `Blockchain.post` is the name of the directory the transaction lies in followed by an underscore and the transaction file name, all in 'quotes'. For example, if we want to call `transactions/kibble/mint_tokens.cdc`, we will put 'kibble_mint_tokens'.
 
-Next, we put an object that takes in all the parameters of our transaction/script. If you look at `kibble_mint_tokens.cdc`, you'll see it takes in two parameters: recipient (an address) and amount (a UFix64). For each, you write the name of the parameter, and map it to a object that takes in a `value`, which is passed from the client, and a `type`, which is the parameter's type. We use FCL for this by doing `t.{the type}`.
+Next, we put an object that takes in all the parameters of our transaction. If you look at `kibble_mint_tokens.cdc`, you'll see it takes in two parameters: recipient (an address) and amount (a UFix64). For each, you write the name of the parameter, and map it to a object that takes in a `value`, which is passed from the client, and a `type`, which is the parameter's type. We use FCL for this by doing `t.{the type}`. Here's an example:
+
+```javascript
+{
+  account: {value: data.account, type: t.Address},
+  amount: {value: data.amount, type: t.UFix64}
+}
+```
 
 **Note**: If the type is `t.UInt64`, you must wrap the value in a `parseInt()`. Here's an example:
 
@@ -54,7 +63,7 @@ return {
 
 ## Setting Up a Script
 
-![DappLib Script](/images/dapplib-script.png)
+![DappLib Script](images/dapplib-script.png)
 
 Setting up a script function, like the picture above, is very similar to how we set up a transaction function. There are a few key differences though:
 
@@ -91,6 +100,11 @@ I have one quest for you today, `W2Q5`. You will **ONLY** be modifying `transact
 
 - `W2Q5` – The Mighty DappLib
 
+For this quest, I want you to look for all the non-implemented functions in your `dapp-lib.js`. There are 2 transaction functions and 1 script function I want you to implement. I have already defined for you who the proposer is for each function, so your job is to set up the function as described above and make sure you pass it the correct parameters for the transaction/script you're calling.
+
+Next, you will have to implement the transactions and scripts themselves. There are 2 transactions (`transactions/kittyitems/mint_kitty_item.cdc`, `transactions/kittyitems/transfer_kitty_item.cdc`) and 1 script (`scripts/kittyitems/read_collection_ids.cdc`) you will need to implement. I have left comments for you to help you in your journey.
+
+Once you have completed this quest, you should be able to successfully run all of the DAY 3 action cards. Please submit a screenshot of working DAY 3 action cards, as well as your dapp-lib and transactions/scripts. I have described what your action cards should look like once you've completed this quest at the end of [this video.](https://www.youtube.com/watch?v=zFtc4QLrxas)
 
 
 Good luck on your quests. See you next time DappStarter adventurers ~
