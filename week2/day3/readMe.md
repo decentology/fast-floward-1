@@ -1,5 +1,3 @@
-  # This is not officially out yet.
-
 # Fast Floward | Week 2 | Day 3
 
 Hi! It's your favorite person Jacob here to lead you through Week 2 Day 3 content. Yesterday, we went over the 3 contracts in our dApp that we got off of DappStarter. Today, we will be looking at how we can modify our DappLib, transactions, and scripts in order to learn how to interact with our contracts on DappStarter.
@@ -8,7 +6,7 @@ Let's get right into it.
 
 # Videos
 
-- [DappLib, Transactions, and Scripts](https://www.youtube.com/watch?v=zFtc4QLrxas)
+- [DappLib, Transactions, and Scripts](https://www.youtube.com/watch?v=Czg3mMLw1I4)
 
 # DappLib
 
