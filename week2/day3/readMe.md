@@ -101,6 +101,10 @@ we do:
 
 This makes things a lot simpler and easier to read. The reason it is `Project.KittyItems` is because our KittyItems contract is defined in the `contracts/Project` folder. You can see this naming in `src/dapp-config.json` as well.
 
+# Hot Loading
+
+It is also important to note that DappStarter supports hot loading. If you make any changes to your contracts, transactions, scripts, dapp-lib.js, or the client that we will introduce in tomorrow's content, you will not have to re-run `yarn start`. Your dApp will automatically re-compile for you.
+
 # Quests
 
 I have one quest for you today, `W2Q5`. You will **ONLY** be modifying `transactions/kittyitems/mint_kitty_item.cdc`, `transactions/kittyitems/transfer_kitty_item.cdc`, `scripts/kittyitems/read_collection_ids.cdc`, and `src/dapp-lib.js`. Please make sure to watch the videos above before tackling these quests.
