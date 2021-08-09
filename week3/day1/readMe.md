@@ -1,5 +1,3 @@
-# This is not officially out yet.
-
 # Fast Floward | Week 3 | Day 1
 
 Aaaaaaand we're back! Week 3 is upon us and what an exciting week it will be. Except for the fact that you're stuck with me again.
@@ -134,7 +132,7 @@ I have one quest for you today, `W3Q1`.
 
 - `W3Q1` – More Git!
 
-For this quest, I'd like for you to try and understand the technical implementation of composability on Flow using the fast-floward-registry-demo github repo found here: https://github.com/decentology/fast-floward-registry-demo. Like last week, `git clone` the repo onto your computer and see if you can `yarn` and `yarn start` it. You don't have to do anything once you see the UI Harness. We will use this in tomorrow's quest instead. 
+For this quest, I'd like for you to try and understand the technical implementation of composability on Flow using the fast-floward-registry-demo github repo found here: https://github.com/decentology/fast-floward-registry-demo. Like last week, clone the repo onto your computer and see if you can `yarn` and `yarn start` it. You don't have to do anything once you see the UI Harness. We will use this in tomorrow's quest instead. 
 
 Next, try and walk through the `/packages/dapplib/contracts` directory and go through the contracts there. You'll see 3 folders:
 1) 'Flow' - this isn't too important, but it has the NFT contract interface in it
