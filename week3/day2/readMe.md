@@ -1,14 +1,16 @@
 # Fast Floward | Week 3 | Day 2
 
-Hi! It's me again, the best developer in the world (Jacob). Today, we will be continuing our conversation about composability on Flow. Specifically, we will dive into some issues we may encounter using the implementation we learned about yesterday & how to solve them using our lovely friend Access Control.
+Hi! It's me again, the best developer in the world (Jacob). Today, we will continue our conversation about composability on Flow. Specifically, we will dive into some issues we may encounter using the implementation we learned about yesterday & how to solve them using our lovely friend Access Control.
 
-As a side note, I have greatly appreciated some feedback we have received in the discord. I really enjoy getting to talk to each of you about your initial reactions to Flow, Cadence, Composability, etc. Keep asking questions and having converations, it's great!
+As a side note, I have greatly appreciated the feedback we have received in the discord. I really enjoy getting to talk to each of you about your initial reactions to Flow, Cadence, Composability, etc. Keep asking questions and having converations, it's great!
 
 # Videos
 
-There are no videos for you to watch today. Today's content is merely an extension of yesterday, and we will be walking through this in office hours.
+There are no videos for you to watch today. Today's content is merely an extension of yesterday, and we will be walking through this in office hours. I encourage you to watch that video after I post it here.
 
 # Some Initial Problems in RegistryContract
+
+## Review
 
 Let's review some information from yesterday since I threw a lot at you... I will include a copy & paste of some content from yesterday. It will be helpful to look at it again.
 
@@ -62,6 +64,8 @@ pub contract RegistryNFTContract: RegistryInterface{
 
 It's important to realize that if we defined `totalSupply` as `pub let totalSupply: UInt64`, this wouldn't work because `pub` only has write scope of current & inner as we learned during Week 2 Day 1.
 
+## Using Access Control to Update Data
+
 This wraps up our review from yesterday. You might be thinking: well this stinks. Now, in order to mint an NFT, anyone who has a NFTMinter resource has to also have access to the `Tenant` reference, which is not possible since `Tenant` will never be linked to the public. Is it true, then, that only the owner of the `Tenant` resource can mint an NFT? No. Let's see how we can solve this so that anyone who wants to mint an NFT can without requiring a `Tenant` reference.
 
 ```cadence
@@ -113,6 +117,8 @@ pub contract RegistryNFTContract: RegistryInterface {
 ```
 
 In this example, we have done something awesome. Anyone who has an `NFTMinter` resource only needs a `Tenant{ITenantMinter}` reference, which will be publically available after the **Tenant** links it to the public. Note this is NOT the same thing as linking the `Tenant` itself to the public. This is why capabilities are so cool: we expose `Tenant{ITenantMinter}` to the public so anyone with an `NFTMinter` resource can borrow it and use it to mint NFTs.
+
+## Nested Resources & How to Handle Them
 
 Another problem we encounter is the idea of "nested resources." Yesterday, I told you that the `Tenant` resource has two things in it:
 1) any data that would normally be stored in the contract (ex. `totalSupply`)
