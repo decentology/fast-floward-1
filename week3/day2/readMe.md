@@ -1,17 +1,16 @@
-# This is not officially out yet.
-
 # Fast Floward | Week 3 | Day 2
 
-Hi! Yep, it's Jacob here. Today, we will be continuing our conversation about composability on Flow. Specifically, we will dive into some issues we may encounter using the implementation we learned about yesterday & how to solve them using our lovely friend Access Control.
+Hi! It's me again, the best developer in the world (Jacob). Today, we will be continuing our conversation about composability on Flow. Specifically, we will dive into some issues we may encounter using the implementation we learned about yesterday & how to solve them using our lovely friend Access Control.
+
+As a side note, I have greatly appreciated some feedback we have received in the discord. I really enjoy getting to talk to each of you about your initial reactions to Flow, Cadence, Composability, etc. Keep asking questions and having converations, it's great!
 
 # Videos
 
-- []()
-- []()
+There are no videos for you to watch today. Today's content is merely an extension of yesterday, and we will be walking through this in office hours.
 
-# Some Potential Problems in RegistryContract
+# Some Initial Problems in RegistryContract
 
-Let's review some information from yesterday since I threw a lot at you...
+Let's review some information from yesterday since I threw a lot at you... I will include a copy & paste of some content from yesterday. It will be helpful to look at it again.
 
 A **RegistryContract** is a contract. It can be made by anyone as long as it implements the **RegistryInterface**. The point of a **RegistryContract** is to make it so that all data is no longer stored in the contract. Rather, it is stored in the `Tenant` resource that you define in this contract. As described above, the `Tenant` resource is composed of:
 1) any data that would normally be stored in the contract (ex. `totalSupply`)
@@ -115,6 +114,71 @@ pub contract RegistryNFTContract: RegistryInterface {
 
 In this example, we have done something awesome. Anyone who has an `NFTMinter` resource only needs a `Tenant{ITenantMinter}` reference, which will be publically available after the **Tenant** links it to the public. Note this is NOT the same thing as linking the `Tenant` itself to the public. This is why capabilities are so cool: we expose `Tenant{ITenantMinter}` to the public so anyone with an `NFTMinter` resource can borrow it and use it to mint NFTs.
 
+Another problem we encounter is the idea of "nested resources." Yesterday, I told you that the `Tenant` resource has two things in it:
+1) any data that would normally be stored in the contract (ex. `totalSupply`)
+2) anything that would be stored to account storage in the contract's `init` function (ex. an `NFTMinter` resource)
+
+Let's focus on #2. If we normally store an NFTMinter resource in account storage, we now have to store this in the Tenant itself, since the `Tenant` resource acts as the initial contract state every time it's created returned to the caller in the `instance` function. But how do we deal with nested resources? Let's take a look:
+
+```cadence
+pub contract RegistryNFTContract: RegistryInterface {
+    // Required from RegistryInterface
+    pub var clientTenants: {Address: UInt64}
+
+    // Required from RegistryInterface
+    pub fun instance(): @Tenant {...}
+
+    // Required from RegistryInterface
+    pub fun getTenants(): {Address: UInt64} {...}
+
+    // We define a resource interface called ITenantMinter
+    // that allows this contract to call updateTotalSupply.
+    pub resource interface ITenantMinter {
+        access(contract) fun updateTotalSupply()
+    }
+
+    // Required from RegistryInterface
+    pub resource Tenant: ITenantMinter {
+        pub(set) var totalSupply: UInt64
+
+        access(self) let nftMinter: @NFTMinter
+
+        pub fun getMinterRef(): &NFTMinter {
+            return &self.nftMinter as &NFTMinter
+        }
+
+        // Define an updateTotalSupply function to be exposed
+        // by the ITenantMinter resource interface.
+        access(contract) fun updateTotalSupply() {
+            self.totalSupply = self.totalSupply + 1
+        }
+
+        init() {
+            self.totalSupply = 0
+            self.nftMinter <- create NFTMinter()
+        }
+    }
+
+    pub resource NFT {
+        pub let id: UInt64
+
+        init(_tenantRef: &Tenant{ITenantMinter}) {
+            _tenantRef.updateTotalSupply()
+        }
+    }
+
+    pub resource NFTMinter {
+        pub fun mintNFT(_tenantRef: &Tenant{ITenantMinter}): @NFT {
+            return <- create NFT(_tenantRef: _tenantRef)
+        }       
+    }
+
+    init() {...}
+}
+```
+
+As you can see, we store the `NFTMinter` resource inside the `Tenant` resource. It is then helpful to add a function that returns a reference to that resource, since moving nested resources around is very painful in Cadence. This way, we can easily perform things on the `NFTMinter` without moving it around.
+
 # Quests
 
 I have one quest for you today, `W3Q2`.
@@ -128,7 +192,5 @@ Please submit your updated contract/transaction code.
 Note: This quest will not take long. This is because I want you to start thinking of your *own* examples of Composable contracts that might be useful. Start asking yourself questions like:  
 1) Are there repetitive contracts out there that could become composable so every Tenant could own their own data without having to deploy a whole new contract (like our simple NFT contract)? 
 2) What ideas might I have that would suit this composability model well? It could be an NFT that represents a Cake, a FungibleToken that represents cookies.... I'm hungry.
-
-Along with your updates to `RegistryNFTContract.cdc`, please submit 2 potential composable contract ideas that come to mind. 
 
 Good luck on your journey. See you next time Composability adventurers ~
