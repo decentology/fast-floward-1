@@ -124,7 +124,7 @@ Another problem we encounter is the idea of "nested resources." Yesterday, I tol
 1) any data that would normally be stored in the contract (ex. `totalSupply`)
 2) anything that would be stored to account storage in the contract's `init` function (ex. an `NFTMinter` resource)
 
-Let's focus on #2. If we normally store an NFTMinter resource in account storage, we now have to store this in the Tenant itself, since the `Tenant` resource acts as the initial contract state every time it's created returned to the caller in the `instance` function. But how do we deal with nested resources? Let's take a look:
+Let's focus on #2. If we normally store an NFTMinter resource in account storage, we now have to store this in the Tenant itself. This is because, as we've learned, the `Tenant` resource acts as the initial contract state every time it's created and returned to the caller by the `instance` function. But how do we deal with nested resources? Let's take a look:
 
 ```cadence
 pub contract RegistryNFTContract: RegistryInterface {
