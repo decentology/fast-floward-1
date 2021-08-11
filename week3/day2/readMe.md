@@ -8,6 +8,8 @@ As a side note, I have greatly appreciated the feedback we have received in the 
 
 There are no videos for you to watch today. Today's content is merely an extension of yesterday, and we will be walking through this in office hours. I encourage you to watch that video after I post it here.
 
+Update: Office Hours Video - https://youtu.be/X2NPoOElKkk
+
 # Some Initial Problems in RegistryContract
 
 ## Review
