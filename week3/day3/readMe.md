@@ -4,7 +4,9 @@ Heyoooooooooooo. Jacob reporting in for another super awesome and fun day of Fas
 
 # Videos
 
-There are no videos for you to watch today. Instead, we will be having a conversation about developing our own composability modules in office hours. I will post that video here after it's over.
+There are no videos for you to watch today. Instead, we will be having a conversation about developing our own composability modules in office hours.
+
+Office Hours video - https://www.youtube.com/watch?v=vNVr3c7N9RQ
 
 # Developing our Own Composability Modules
 
@@ -37,5 +39,7 @@ Example Composability Module | Difficulty | Description
 5) **Voting** | *Medium-Hard* | Define a RegistryVotingContract that handles Voting on the Flow blockchain. There could be many different versions of this depending how you interpret "voting." It could be a system where there is a proposal initiated by an Admin and each address can only vote once, or it could be a ballot-type voting where users vote on ballots, etc. This is really up to you to decide. Then define your own Calling Contract that uses this Voting in some way.
 
 These are 5 ideas you can work with. There are an infinite amount of ideas you could potentially come up with. I am also being purposefully vague in my descriptions to allow you to be creative in the best way that you can. Remember, this stuff might not make sense at first and will be confusing over the next few days. But let's use this as an opportunity to open a discussion about how you want to approach this quest, I think you'll be able to learn more that way.
+
+Additionally, I have created a channel named #composability-discussion. Let's chat about any comments, questions, or ideas you may have! You can also use this to share ideas with each other to create your composability modules :)
 
 Good luck on your journey. See you next time Composability adventurers ~
