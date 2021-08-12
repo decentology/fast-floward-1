@@ -1,6 +1,6 @@
 # Fast Floward | Week 3 | Day 3
 
-Heyoooooooooooo. Jacob reporting in for another super awesome and fun day of Fast Floward content. Today, we will be using what we've learned about Cadence, DappStarter, and Composability to star making our own composability modules. We will have lengthy discussions in the Discord and Office Hours over the next few days to help you in your implementation. Let's have some fun with this and work through this together to make something great.
+Heyoooooooooooo. Jacob reporting in for another super awesome and fun day of Fast Floward content. Today, we will be using what we've learned about Cadence, DappStarter, and Composability to start making our own composability modules. We will have lengthy discussions in the Discord and Office Hours over the next few days to help you in your implementation. Let's have some fun with this and work through this together to make something great.
 
 # Videos
 
