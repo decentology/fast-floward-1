@@ -12,7 +12,7 @@ Office Hours video - https://www.youtube.com/watch?v=vNVr3c7N9RQ
 
 The past two days we have discussed Composability and how we (the Decentology team) have been approaching a technical implementation of Composability on Flow. Over the next 3 days, we will be working with 1 Quest to actually make our own Composability modules. 
 
-As a result, there won't be any "new" content today. Instead, we will use a more open-ended quest to stimulate conversation and speed bumps along the way that should serve as a great learning experience.
+As a result, there won't be any "new" content today. Instead, we will use a more open-ended quest to stimulate conversation around composability, which should serve as a great learning experience.
 
 Before you read the quest, I want to make it clear that this isn't something to be scared or stressed about. This quest is designed to allow you to explore your own creative ideas and to have some fun making a full dApp on your own. If you need any help along the way, the Discord & Office Hours are there for you. If you struggle along the way or don't have the time to finish before the week is over, *that is completely fine.* All I want to see is that you put in a good amount of effort and that you had some fun with it. This stuff is hard. So let's do our best and that's perfect enough.
 
