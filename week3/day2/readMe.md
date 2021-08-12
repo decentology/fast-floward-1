@@ -64,7 +64,7 @@ pub contract RegistryNFTContract: RegistryInterface{
 }
 ```
 
-It's important to realize that if we defined `totalSupply` as `pub let totalSupply: UInt64`, this wouldn't work because `pub` only has write scope of current & inner as we learned during Week 2 Day 1.
+It's important to realize that if we defined `totalSupply` as `pub var totalSupply: UInt64`, this wouldn't work because `pub` only has write scope of current & inner as we learned during Week 2 Day 1.
 
 ## Using Access Control to Update Data
 

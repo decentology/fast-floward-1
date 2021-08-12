@@ -114,7 +114,7 @@ pub contract RegistryNFTContract: RegistryInterface{
 }
 ```
 
-It's important to realize that if we defined `totalSupply` as `pub let totalSupply: UInt64`, this wouldn't work because `pub` only has write scope of current & inner as we learned during Week 2 Day 1.
+It's important to realize that if we defined `totalSupply` as `pub var totalSupply: UInt64`, this wouldn't work because `pub` only has write scope of current & inner as we learned during Week 2 Day 1.
 
 You might be thinking: well this stinks. Now, in order to mint an NFT, anyone who has a NFTMinter resource has to also have access to the `Tenant` reference, which is not possible since `Tenant` will never be linked to the public. We will go over this issue in tomorrow's content and present a way to solve it. 
 
