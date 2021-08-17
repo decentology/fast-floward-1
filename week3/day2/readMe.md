@@ -84,12 +84,13 @@ pub contract RegistryNFTContract: RegistryInterface {
     // We define a resource interface called ITenantMinter
     // that allows this contract to call updateTotalSupply.
     pub resource interface ITenantMinter {
+        pub var totalSupply: UInt64
         access(contract) fun updateTotalSupply()
     }
 
     // Required from RegistryInterface
     pub resource Tenant: ITenantMinter {
-        pub(set) var totalSupply: UInt64
+        pub var totalSupply: UInt64
 
         // Define an updateTotalSupply function to be exposed
         // by the ITenantMinter resource interface.
@@ -104,6 +105,7 @@ pub contract RegistryNFTContract: RegistryInterface {
         pub let id: UInt64
 
         init(_tenantRef: &Tenant{ITenantMinter}) {
+            self.id = _tenantRef.totalSupply
             _tenantRef.updateTotalSupply()
         }
     }
@@ -142,12 +144,13 @@ pub contract RegistryNFTContract: RegistryInterface {
     // We define a resource interface called ITenantMinter
     // that allows this contract to call updateTotalSupply.
     pub resource interface ITenantMinter {
+        pub var totalSupply: UInt64
         access(contract) fun updateTotalSupply()
     }
 
     // Required from RegistryInterface
     pub resource Tenant: ITenantMinter {
-        pub(set) var totalSupply: UInt64
+        pub var totalSupply: UInt64
 
         access(self) let nftMinter: @NFTMinter
 
@@ -171,6 +174,7 @@ pub contract RegistryNFTContract: RegistryInterface {
         pub let id: UInt64
 
         init(_tenantRef: &Tenant{ITenantMinter}) {
+            self.id = _tenantRef.totalSupply
             _tenantRef.updateTotalSupply()
         }
     }
