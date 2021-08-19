@@ -1,15 +1,10 @@
-# This is not officially out yet.
-
 # Fast Floward | Week 2 | Day 5
 
-Wow. You've made it almost an entire week with me. You must be so happy you're almost done with me... psyche! We have all of Week 3 together. Anyways, let's conclude Week 2. You've done a great job already, so let's wrap things up and enjoy the weekend.
+Wow. You've made it almost an entire week with me. You must be so happy you're almost done with me... psych! We have all of Week 3 together. Anyways, let's conclude Week 2. There is no new content this week. Instead, there is 1 quest to bring together everything you've learned on DappStarter. You've done a great job already, so let's wrap things up and enjoy the weekend.
 
 # Videos
 
-- [Smart Contract Architecture]()
-
-#
-
+There are no videos for today.
 
 # Quests
 
