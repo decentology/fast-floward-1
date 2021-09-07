@@ -1,33 +1,35 @@
-# Fast Floward | Week 1 | Day 5
+# Flow 快速入门 | 第一周 | 第五天
 
-Welcome to Day 5, the last day of Fast Floward Week 1! What an incredible spurt we've made over this past week. Starting with simple, interpreted Cadence statements, all the way up to a client implementation of the Artist app that prints actual Non-Fungible Tokens for users. But this is just the start of your journey! Today, we'll add a new feature to the Artist app – trading. In the process, we'll learn how to combine functionality from multiple smart contracts, and a new Cadence concept called `interface`. Let's make Day 5 the best yet!
+欢迎来到第5天，也是 Fast Floward课程第一周的最后一天！
+在过去的一周里，相信大家已经取得了非常不错的进展。从最简单的Cadence语句开始，一直到一个完整的Artist App的实现，并且能够铸造真实的NFT。但这还只是你旅程的开始! 今天，我们将为Artist App添加一个新功能——交易。在这个过程中，我们将学习如何结合多个智能合约的功能，以及Cadence里面的一个新概念——接口。让我们开始吧~
 
-A quick review of Day 4 before we get going.
+开始之前，先快速回顾一下前四天的内容。
 
-# Day 4 Review
+# 第四天回顾
 
-- Flow Client Library - FCL - is a JavaScript client-side utility designed by Flow.
-  - Easily integrate wallets and allow seamless user authentication.
-  - Use the `fcl.send` method to interact with the blockchain by sending scripts and transactions.
-  - Use `fcl.authz` as a shorthand for current user.
-  - FCL automatically converts Cadence types and values into JavaScript equivalents with `fcl.decode`.
-- Flow Testnet provides an easy way to test DApp integrations with live user wallets.
-  - To view contracts deployed to testnet, use [flow-view-source.com][1].
-  - To create and fund testnet accounts, use [flowfaucet][2].
+- Flow Client Library - FCL - 是一个由Flow设计的JavaScript客户端工具。
+  - 轻松地集成钱包，并支持无缝的用户认证。
+  - 使用`fcl.send`方法通过发送脚本和交易与区块链交互。
+  - 使用`fcl.authz`代表当前的用户。
+  - FCL通过`fcl.decode`自动将Cadence类型和值转换为JavaScript的标识。
+- Flow Testnet提供了一个简单的方法来测试DApp与实时用户钱包的整合。
+  - 要查看部署在testnet的合约，请使用[flow-view-source.com][1].
+  - 要创建testnet账户以及转账，请使用 [flowfaucet][2].
 
-# Videos
+# 视频
 
-- [Cadence Interfaces, NFT Trading](https://youtu.be/ogAls3Wbs9o)
+- [Cadence接口, NFT交易](https://youtu.be/ogAls3Wbs9o)
 
-# Office Hours
+# 答疑时间
 
-- [Office Hours #5](https://www.youtube.com/watch?v=Bnaq37xiTmE)
+- [答疑时间#5](https://www.youtube.com/watch?v=Bnaq37xiTmE)
 
-# Cadence Interfaces
+# Cadence接口
 
-Day 4 LocalArtist contract contained a new function called `withdraw`, it allows `Picture` withdrawal from `Collection` resources. Creating a public **capability** with such a function would be terrible – everyone could withdraw pictures from your collection. Thankfully, capabilities have this wonderful feature where you can choose how much of a type's functionality you want to expose.
 
-When you create a capability by calling `link` you provide the capability type.
+第4天的LocalArtist合约包含了一个新的函数，叫做`withdraw`，它允许从`Collection`资源中提取`Picture`。用这样的函数创建一个公开的**capability**是一个很糟糕的做法——这样每个人都可以从你的Collection中提取Picture。不过好在Capability提供了一个非常好用的能力：你可以自由选择开放多少功能。
+
+当你通过调用`link`创建一个capability时，你会提供capability的类型。
 
 ```cadence
 account.link<&LocalArtist.Collection>(
@@ -36,9 +38,10 @@ account.link<&LocalArtist.Collection>(
 )
 ```
 
-That's good enough if we have no functions associated with that type that are dangerous. But after we added `withdraw`, we must create our capability differently. Here's how.
+只要我们没有任何不安全的方法是与该类型相关的，那就够了。但在我们添加了`withdraw`之后，我们必须以不同的方式创建capability。接下来让我们看看具体怎么实现。
 
-First, we create an `interface` that defines a set of fields and functions. Note, this is a `resource` interface, but you can also have structure and contract interfaces. Then we modify our resource to note that it *implements* the `PictureReceiver` interface. Of course, we must also implement the fields and functions required by the interface.
+首先，我们创建一个定义了一组字段和函数的接口。注意，这是一个资源接口，但你也可以有结构和合约接口。然后我们修改我们的资源，表明它实现了`PictureReceiver`接口。当然，我们也必须实现该接口所要求的字段和函数。
+
 
 ```cadence
 pub resource interface PictureReceiver {
@@ -52,8 +55,8 @@ pub resource Collection: PictureReceiver {
   // ...
 }
 ```
+有了这个以后，我们就可以在创建我们的公开capability时继续使用`PictureReceiver`。
 
-With this setup, we can proceed to use `PictureReceiver` when creating our public capabilities.
 
 ```cadence
 account.link<&{LocalArtist.PictureReceiver}>(
@@ -61,10 +64,10 @@ account.link<&{LocalArtist.PictureReceiver}>(
   target: /storage/LocalArtistPictureCollection
 )
 ```
+现在，任何人尝试与`/public/LocalArtistPictureReceiver`的资源交互时，就只对 `deposit()` 和 `getCanvases()` 进行访问。这样，我们就可以确保只有这个账户的所有者才能从他们的Collection中提取Picture。
 
-Now, whenever anyone interacts with the resource at `/public/LocalArtistPictureReceiver`, it will only provide access to `deposit()` and `getCanvases()`. And this way, we can stay secure in knowing that only the owner of this account has the ability to withdraw Pictures from their collection.
+以下是视频中的完整的`Greeting`合约。
 
-Here's the full `Greeting` contract from the video.
 
 ```cadence
 pub contract Hello {
@@ -110,33 +113,34 @@ pub contract Hello {
   }
 }
 ```
+要了解更多关于[基于capability的访问控制][3]和[接口][4]，请访问官方文档。
 
-To learn more about [capability based access control][3] and [interfaces][4], please visit the official docs.
 
-# Trading Pictures
+# 交易Pictures
 
-We're ready to take our LocalArtist app to the next level by implementing Picture trading! The `day5` folder contains updated code for the user interface as well as a new contract – `LocalArtistMarket`. That's right, we're now interacting with more than one smart contract. In fact, by time we're done with the quest, we will have interacted with 3 smart contracts. That's awesome!
+我们已经准备好通过图片交易将我们的LocalArtist应用程序提升到一个新的水平! `day5`文件夹包含了用户界面的更新代码，以及一个新的合约--`LocalArtistMarket`。我们现在需要与一个以上的智能合约进行交互。事实上，当我们完成这个任务时，我们将与3个智能合约进行交互。这真是太棒了!
 
-I'll do a quick walkthrough of the project, and I decided to do it on video, so please make sure to watch the YouTube video for FastFloward Day 5. I'll meet you there!
 
-# Quests
+我将会对这个项目做一个快速的演示，这个会通过视频的方式呈现，所以请记得观看FastFloward第五天的YouTube视频。我将在那里和你见面!
 
-This is it – once you're done with this final quest, you're officially a decentralized app developer, congratulations! So, what's the quest? Well, you'll have to implement a couple of transactions to finalize Picture trading functionality. Here goes...
+# 任务
 
-- `W1Q9` – Buy Low, Sell High
 
-Modify `/src/context/Flow.jsx` by implementing these methods.
+就是这样！一旦你完成了这个最后的任务，你就正式成为了一个去中心化的应用开发者，恭喜你！那么，任务是什么呢？好吧，你必须实现几个交易，以最终完成图片交易功能。继续往下看…
+
+- `W1Q9` – 低买高卖
+
+通过实现这些方法修改`/src/context/Flow.jsx`
 
 ```
 withdrawListing // call LocalArtistMarket.withdraw()
 buy // call LocalArtistMarket.buy()
 ```
+另外，看看`/src/pages/Trade/Trade.jsx`，看看你是否需要取消注释......
 
-Also, take a look at `/src/pages/Trade/Trade.jsx` to see if you need to uncomment anything...
+就这样，你已经有了一个在线的NFT市场!
 
-And with that, you've got yourself an online NFT marketplace!
-
-It's been a absolute privilege to guide you on your journey to becoming a decentralized app developer. Week 2 and 3 are coming up, and Jacob along with Nik and the rest of the team at Decentology have incredible content waiting for you. So strap in for the rest of the ride, the fun has just begun!
+非常荣幸能指导和帮助在你成为一个去中心化的应用程序开发者。第二周和第三周即将到来，Jacob和Nik以及Decentology团队的其他成员有更棒的内容等着你。所以，请继续接下来的程，乐趣才刚刚开始!
 
 [1]: https://flow-view-source.com/testnet/account/0xda65073324040264
 [2]: https://testnet-faucet.onflow.org/
