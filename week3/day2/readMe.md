@@ -80,11 +80,11 @@ pub contract RegistryNFTContract: RegistryInterface {
     // Required from RegistryInterface
     pub fun instance(): @Tenant {...}
 
-    // Required from RegistryInterface
+    //注册表接口
     pub fun getTenants(): {Address: UInt64} {...}
 
-    // We define a resource interface called ITenantMinter
-    // that allows this contract to call updateTotalSupply.
+    //我们定义一个名为ITenantMinter的资源接口
+    //允许这个契约调用updateTotalSupply。
     pub resource interface ITenantMinter {
         pub var totalSupply: UInt64
         access(contract) fun updateTotalSupply()
