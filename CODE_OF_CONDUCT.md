@@ -1,4 +1,4 @@
-# Citizen Code of Conduct
+# Decentology Code of Conduct
 
 ## 1. Purpose
 
